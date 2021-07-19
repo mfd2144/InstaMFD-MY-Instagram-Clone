@@ -15,8 +15,8 @@ final class LoginRouter:LoginRouterProtocol{
     func routeToPage(_ page: LoginRoutes) {
         switch page{
         case.fogotPassword(let username):
-            //TODO
-            break
+            let forgotView = ForgotThePasswordBuilder.make(username)
+            view.navigationController?.pushViewController(forgotView, animated: true)
         case.signUpPage:
             let newView = SignUpMethodBuilder.make()
             view.navigationController?.pushViewController(newView, animated: true)

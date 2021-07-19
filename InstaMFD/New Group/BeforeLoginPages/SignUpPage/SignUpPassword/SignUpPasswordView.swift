@@ -67,6 +67,7 @@ final class SignUpPasswordView:UIViewController{
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setSubviews()
+        textField.delegate = self
         addButtonTarget()
     }
     
@@ -86,6 +87,7 @@ final class SignUpPasswordView:UIViewController{
     }
     
     @objc private func nextButtonPressed(){
+        textField.endEditing(true)
         viewModel.nextButtonPressed(textField.text!)
     }
 }
@@ -113,10 +115,13 @@ extension SignUpPasswordView:SignUpPasswordViewModelDelegate{
                 break
             }
         }
-    
     }
-    
-    
 }
 
+extension SignUpPasswordView:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nextButtonPressed()
+        return true
+    }
+}
 

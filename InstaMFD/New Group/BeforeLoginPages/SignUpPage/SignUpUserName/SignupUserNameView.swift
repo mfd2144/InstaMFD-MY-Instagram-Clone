@@ -64,6 +64,7 @@ final class SignupUserNameView:UIViewController{
         view.backgroundColor = .systemBackground
         setSubviews()
         addButtonTarget()
+        textField.delegate = self
     }
     
     //MARK: - Set subviews
@@ -79,6 +80,7 @@ final class SignupUserNameView:UIViewController{
     
     private func addButtonTarget(){
         nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        textField.endEditing(true)
     }
     
     @objc private func nextButtonPressed(){
@@ -95,6 +97,7 @@ extension SignupUserNameView:SignupUserNameDelegate{
             switch result {
             case .failure(let error):
                 guard let err = error as? GeneralErrors else {return}
+                print(err)
                 addCaution(title: "Caution", message:err.description)
             default:
                 break
@@ -103,6 +106,13 @@ extension SignupUserNameView:SignupUserNameDelegate{
     }
     
     
+}
+
+extension SignupUserNameView:UITextFieldDelegate{
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        nextButtonPressed()
+        return true
+    }
 }
 
 

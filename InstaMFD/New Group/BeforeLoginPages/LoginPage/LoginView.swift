@@ -50,7 +50,6 @@ final class LoginView:UIViewController{
         label.text = "Forgot password?"
         label.textAlignment = .right
         label.textColor = .systemTeal
-        
         return label
     }()
     
@@ -149,6 +148,8 @@ final class LoginView:UIViewController{
         fBButton.delegate = self
         setSubviews()
         setTargets()
+        nameField.delegate = self
+        passwordField.delegate = self
         
     }
     
@@ -184,8 +185,6 @@ final class LoginView:UIViewController{
             bottomStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bottomStack.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
-        
-        
     }
     
     
@@ -193,16 +192,23 @@ final class LoginView:UIViewController{
     private func setTargets(){
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         signUpButton.addTarget(self, action:#selector(signUpButtonPressed), for: .touchUpInside)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordPressed))
+        forgotThePassword.addGestureRecognizer(tapRecognizer)
+        forgotThePassword.isUserInteractionEnabled = true
     }
     
     @objc private func loginButtonPressed(_ sender: UIButton){
         model.logIn(nameField.text!, passwordField.text!)
+        nameField.endEditing(true)
+        passwordField.endEditing(true)
     }
     
     @objc private func signUpButtonPressed(_ sender: UIButton){
         model.singUp()
     }
-    
+    @objc private func forgotPasswordPressed(){
+        model.forgetPassword("ali")
+    }
 }
 
 //MARK: - Outputs of model
@@ -246,10 +252,16 @@ extension LoginView:LoginButtonDelegate{
     }
 
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        addCaution(title: "Success", message: "logged out")
+        addCaution(title: "Caution", message: "logged out")
 
     }
 }
 
-
+extension LoginView:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+}
 

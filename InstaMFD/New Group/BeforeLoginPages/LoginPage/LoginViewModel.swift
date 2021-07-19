@@ -17,11 +17,6 @@ final class LoginViewModel:LoginViewModelProtocol{
     weak var delegate: LoginViewModelDelegate?
     var router :LoginRouterProtocol!
     
-}
-
-extension LoginViewModel{
-    
-    
     func logIn(_ userName: String, _ password: String) {
         var numberLogic = true
         var email:String!
@@ -61,7 +56,7 @@ extension LoginViewModel{
     
     
     func forgetPassword(_ userName: String?) {
-        
+        router.routeToPage(.fogotPassword(userName))
     }
     
     func singUp() {

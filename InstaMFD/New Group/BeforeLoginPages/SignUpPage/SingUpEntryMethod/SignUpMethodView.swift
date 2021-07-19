@@ -14,12 +14,8 @@ final class SignUpMethodView:UIViewController{
     
     let textValeus = CurrentValueSubject<[String],Never>(["",""])
     var instantValue = PassthroughSubject<String,Never>()
-    
-    let selectedSegment = CurrentValueSubject<Int,Never>(0)
     var subscriptions = Set<AnyCancellable>()
     let service = CodesService()
-    var emailTapGesture:UITapGestureRecognizer!
-    var phoneTapGesture:UITapGestureRecognizer!
     var codeTapGesture:UITapGestureRecognizer!
     
     let stack: UIStackView = {
@@ -40,71 +36,17 @@ final class SignUpMethodView:UIViewController{
         return label
     }()
     
-    
-    let customSegmenStack:UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.distribution = .fillEqually
-        return stack
-    }()
-    
-    
-    let stackLeft:UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.spacing = 20
-        stack.alignment = .fill
-        return stack
-    }()
-    
-    let stackRight:UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fill
-        stack.spacing = 20
-        stack.alignment = .fill
-        return stack
-    }()
-    
-    let labelPhone:UILabel = {
-        let label = UILabel()
-        label.text = "Phone"
-        label.textAlignment = .center
-        label.textColor = .none
-        return label
-    }()
-    
-    let labelEmail:UILabel = {
-        let label = UILabel()
-        label.text = "Email"
-        label.textAlignment = .center
-        label.textColor = .none
-        return label
-    }()
-    let line1:UIImageView = {
-        let imageV = UIImageView()
-        imageV.layer.borderWidth = 2
-        imageV.layer.borderColor = UIColor.black.cgColor
-        imageV.translatesAutoresizingMaskIntoConstraints = false
-        imageV.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        return imageV
-    }()
-    
-    let line2:UIImageView = {
-        let imageV = UIImageView()
-        imageV.layer.borderWidth = 2
-        imageV.layer.borderColor = UIColor.black.cgColor
-        imageV.translatesAutoresizingMaskIntoConstraints = false
-        imageV.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        return imageV
+    let customSegment: CustomSegmentController = {
+        let segment = CustomSegmentController(firstSegment: "Phone", SecondSegment: "Email")
+        segment.translatesAutoresizingMaskIntoConstraints = false
+        return segment
     }()
     
     let textField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.setRightPaddingPoints(10)
+        textField.setLeftPaddingPoints(55)
         return textField
     }()
     
@@ -148,6 +90,8 @@ final class SignUpMethodView:UIViewController{
         super.viewWillAppear(animated)
         if Singleton.shared.dialCode != ""{
             codeField.text = Singleton.shared.dialCode
+        }else{
+            codeField.text = signUpMethodViewModel.countryCodeChecker()
         }
         listener()
     }
@@ -155,6 +99,8 @@ final class SignUpMethodView:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        customSegment.delegate = self
+        textField.delegate = self
         setSubviews()
         setTarget()
         setGestures()
@@ -168,24 +114,13 @@ final class SignUpMethodView:UIViewController{
 
     }
     
-    
     //MARK: - Listener
     
     fileprivate func listener() {
-        // listen to labels and textFields
-        
-        selectedSegment.sink {[unowned self] segmentIndex in
-            if segmentIndex == 0{
-                phoneSelected()
-            }else{
-                emailSelected()
-            }
-        }.store(in: &subscriptions)
-        
-        
+        // listen to textField
         instantValue.sink {[unowned self] value in
             if value != ""{
-                switch selectedSegment.value {
+                switch customSegment.selectedIndex {
                 case 0:
                     textValeus.send([textValeus.value[0],value])
                 default:
@@ -194,61 +129,12 @@ final class SignUpMethodView:UIViewController{
             }
         }.store(in: &subscriptions)
     }
-    //MARK: - Custom segment controller methods
-    
-    fileprivate func phoneSelected() {
-        
-        labelPhone.textColor = .none
-        line1.layer.borderColor = labelPhone.textColor?.cgColor
-        labelEmail.textColor = .gray
-        line2.layer.borderColor = labelEmail.textColor?.cgColor
-        codeField.isHidden = false
-        seperator.isHidden = false
-        textField.insetsLayoutMarginsFromSafeArea = false
-        textField.setLeftPaddingPoints(55)
-        textField.resignFirstResponder()
-        textField.keyboardType = .numberPad
-        textField.becomeFirstResponder()
-        instantValue.send(textField.text!)
-        textField.text = textValeus.value[0]
-        phoneTapGesture.isEnabled = false
-        emailTapGesture.isEnabled = true
-        if codeField.text == ""{
-            codeField.text = signUpMethodViewModel.countryCodeChecker()
-        }
-      
-    }
-    
-    fileprivate func emailSelected() {
-        
-        labelPhone.textColor = .gray
-        line1.layer.borderColor = labelPhone.textColor?.cgColor
-        labelEmail.textColor = .none
-        line2.layer.borderColor = labelEmail.textColor?.cgColor
-        codeField.isHidden = true
-        seperator.isHidden = true
-        textField.setLeftPaddingPoints(10)
-        instantValue.send(textField.text!)
-        textField.resignFirstResponder()
-        textField.keyboardType = .emailAddress
-        textField.becomeFirstResponder()
-        textField.text = textValeus.value[1]
-        phoneTapGesture.isEnabled = true
-        emailTapGesture.isEnabled = false
-        
-    }
-    
     //MARK: - Add subviews
     
     private func setSubviews(){
         
-        stackLeft.addArrangedSubview(labelPhone)
-        stackLeft.addArrangedSubview(line1)
-        stackRight.addArrangedSubview(labelEmail)
-        stackRight.addArrangedSubview(line2)
-        customSegmenStack.addArrangedSubview(stackLeft)
-        customSegmenStack.addArrangedSubview(stackRight)
-        let views = [titleLabel,customSegmenStack,textField,nextButton]
+       
+        let views = [titleLabel,customSegment, textField,nextButton]
         for _view in views{
             stack.addArrangedSubview(_view)
         }
@@ -270,12 +156,6 @@ final class SignUpMethodView:UIViewController{
     
     //MARK: - Add Gestures and methods
     private func setGestures(){
-        emailTapGesture = UITapGestureRecognizer(target: self, action: #selector(emailTapped))
-        phoneTapGesture = UITapGestureRecognizer(target: self, action:#selector(phoneTapped))
-        labelEmail.addGestureRecognizer(emailTapGesture)
-        labelEmail.isUserInteractionEnabled = true
-        labelPhone.addGestureRecognizer(phoneTapGesture)
-        labelPhone.isUserInteractionEnabled = true
         codeTapGesture = UITapGestureRecognizer(target: self, action: #selector(codeFieldTapped))
         codeGestureLayer.addGestureRecognizer(codeTapGesture)
         codeGestureLayer.isUserInteractionEnabled = true
@@ -286,13 +166,6 @@ final class SignUpMethodView:UIViewController{
         signUpMethodViewModel.routeToCodesPage()
     }
     
-    @objc private func phoneTapped(){
-        selectedSegment.send(0)
-    }
-    
-    @objc private func emailTapped(){
-        selectedSegment.send(1)
-    }
     
     //MARK: - Add target
     private func setTarget(){
@@ -300,16 +173,42 @@ final class SignUpMethodView:UIViewController{
     }
     
     @objc private func nextButtonPressed(){
-        
-        if selectedSegment.value == 0{
+        textField.endEditing(true)
+        if customSegment.selectedIndex == 0{
             signUpMethodViewModel.checkEntry(.phoneNumber(PhoneNumber(code: codeField.text!, body: textField.text!)))
         }else{
             signUpMethodViewModel.checkEntry(.email(textField.text!))
         }
     }
-    
 }
 
+//MARK: - Custom segment controller methods
+extension SignUpMethodView: CustomSegmentControllerDelegate{
+    func firsSegmentSelected() {
+        codeField.isHidden = false
+        seperator.isHidden = false
+        textField.insetsLayoutMarginsFromSafeArea = false
+        textField.setLeftPaddingPoints(55)
+        textField.resignFirstResponder()
+        textField.keyboardType = .numberPad
+        textField.becomeFirstResponder()
+        instantValue.send(textField.text!)
+        textField.text = textValeus.value[0]
+        codeTapGesture.isEnabled = true
+    }
+    
+    func secondSegmentSelected() {
+        codeField.isHidden = true
+        seperator.isHidden = true
+        textField.setLeftPaddingPoints(10)
+        instantValue.send(textField.text!)
+        textField.resignFirstResponder()
+        textField.keyboardType = .emailAddress
+        textField.becomeFirstResponder()
+        textField.text = textValeus.value[1]
+        codeTapGesture.isEnabled = false
+    }
+}
 
 extension SignUpMethodView:SignUpMethodViewModelDelegate{
     func handleOutput(_ output: SignUpMethodViewModelOutputs) {
@@ -342,11 +241,17 @@ extension SignUpMethodView:SignUpMethodViewModelDelegate{
         alert.addAction(actionCancel)
         alert.addAction(actionAccept)
         present(alert, animated: true, completion: nil)
-     
     }
-    
+}
+
+extension SignUpMethodView:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nextButtonPressed()
+        return true
+    }
 }
 
 
 
 
+//348

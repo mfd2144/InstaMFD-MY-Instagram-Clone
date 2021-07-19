@@ -42,6 +42,8 @@ final class FirebaseAuthenticationService{
         
     }
     
+    //MARK: -Save user information database who sign up with phone number or facebook account
+    
     public func saveUserOtherInformations(userInfos:UserInfo,completion:@escaping result){
         
         guard let date = userInfos.date,
@@ -73,10 +75,7 @@ final class FirebaseAuthenticationService{
     
     
     
-    public func signOut()throws{
-        try Auth.auth().signOut()
-    }
-    
+
     
     private func addUserInformationDatabase(name:String,date:Date,docID:String,completion:@escaping result){
         let request = Auth.auth().currentUser?.createProfileChangeRequest()
@@ -104,6 +103,45 @@ final class FirebaseAuthenticationService{
         })
     }
     
+ 
+    
+    //MARK: - Facebook login
+    
+    public func loginWithFB(completion:@escaping result){
+        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        Auth.auth().signIn(with: credential) {[unowned self ] authResult, error in
+            if let error = error {
+                completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
+            }
+            let name = authResult?.user.displayName ?? "fbUser-\(String(authResult!.user.uid))"
+            //            let mail = authResult?.additionalUserInfo?.profile
+            let docID = authResult?.user.uid
+            let userInfo = UserInfo(userName:name , date: nil, password: nil, phone: docID, mail: nil, isFBAccount: true)
+            checkFBUserLoginBefore(userInfo: userInfo) { result in
+                completion(result)
+            }
+        }
+    }
+    private func checkFBUserLoginBefore(userInfo: UserInfo,completion:@escaping result){
+        guard let docID = userInfo.phone else {return}
+        
+        let collectionPath = Firestore.firestore().collection(Cons.user)
+        let query = collectionPath.whereField(FieldPath.documentID(), isEqualTo: docID)
+        query.getDocuments { querySnapShot, error in
+            
+            if let error = error{
+                completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
+            }
+            if  querySnapShot?.documents.first != nil {
+                //user login before
+                completion(.success(nil))
+                return
+            }else{
+                completion(.success(userInfo))
+            }
+                }
+        }
+    
     public func addFBUserInfo(userInfo:UserInfo,completion:@escaping result){
         
             guard let id = userInfo.phone,
@@ -126,48 +164,13 @@ final class FirebaseAuthenticationService{
                     completion(.success(nil))
                 }
             }
-            
-            
-        
-        
+    }
+
+    //MARK: - Sign out
+    public func signOut()throws{
+        try Auth.auth().signOut()
     }
     
-    
-    private func checkFBUserLoginBefore(userInfo: UserInfo,completion:@escaping result){
-        guard let docID = userInfo.phone else {return}
-        
-        let collectionPath = Firestore.firestore().collection(Cons.user)
-        let query = collectionPath.whereField(FieldPath.documentID(), isEqualTo: docID)
-        query.getDocuments { querySnapShot, error in
-            
-            if let error = error{
-                completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
-            }
-            if  querySnapShot?.documents.first != nil {
-                //user login before
-                completion(.success(nil))
-                return
-            }else{
-                completion(.success(userInfo))
-            }
-                }
-        }
- 
-    public func loginWithFB(completion:@escaping result){
-        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        Auth.auth().signIn(with: credential) {[unowned self ] authResult, error in
-            if let error = error {
-                completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
-            }
-            let name = authResult?.user.displayName ?? "fbUser-\(String(authResult!.user.uid))"
-            //            let mail = authResult?.additionalUserInfo?.profile
-            let docID = authResult?.user.uid
-            let userInfo = UserInfo(userName:name , date: nil, password: nil, phone: docID, mail: nil, isFBAccount: true)
-            checkFBUserLoginBefore(userInfo: userInfo) { result in
-                completion(result)
-            }
-        }
-    }
 }
 
 

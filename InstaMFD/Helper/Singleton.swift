@@ -10,4 +10,7 @@ import Foundation
 struct Singleton{
     static var shared = Singleton()
     var dialCode:String = ""
+   
+    private init(){
+    }
 }

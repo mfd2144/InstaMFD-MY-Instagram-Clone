@@ -35,6 +35,12 @@
 		BA81529026A29DF300335A66 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81528F26A29DF300335A66 /* UserInfo.swift */; };
 		BA8284D426A4E038008B04C3 /* FBLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284D326A4E038008B04C3 /* FBLogOut.swift */; };
 		BA8284D626A54601008B04C3 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284D526A54601008B04C3 /* CALayer.swift */; };
+		BA8284E726A5FD7E008B04C3 /* CustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284E626A5FD7E008B04C3 /* CustomSegment.swift */; };
+		BA8284EE26A603FD008B04C3 /* ForgotThePasswordContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284E926A603FC008B04C3 /* ForgotThePasswordContracts.swift */; };
+		BA8284EF26A603FD008B04C3 /* ForgotThePasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284EA26A603FC008B04C3 /* ForgotThePasswordBuilder.swift */; };
+		BA8284F026A603FD008B04C3 /* ForgotThePasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284EB26A603FC008B04C3 /* ForgotThePasswordRouter.swift */; };
+		BA8284F126A603FD008B04C3 /* ForgotThePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284EC26A603FD008B04C3 /* ForgotThePasswordViewModel.swift */; };
+		BA8284F226A603FD008B04C3 /* ForgotThePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284ED26A603FD008B04C3 /* ForgotThePasswordView.swift */; };
 		BA833860269EB7C400F73B07 /* CountryCodesContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA83385F269EB7C400F73B07 /* CountryCodesContracts.swift */; };
 		BA833862269EB7D800F73B07 /* CountryCodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA833861269EB7D800F73B07 /* CountryCodesViewModel.swift */; };
 		BA833864269EB7E000F73B07 /* CountryCodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA833863269EB7E000F73B07 /* CountryCodesView.swift */; };
@@ -143,6 +149,12 @@
 		BA81528F26A29DF300335A66 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		BA8284D326A4E038008B04C3 /* FBLogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLogOut.swift; sourceTree = "<group>"; };
 		BA8284D526A54601008B04C3 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		BA8284E626A5FD7E008B04C3 /* CustomSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; };
+		BA8284E926A603FC008B04C3 /* ForgotThePasswordContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotThePasswordContracts.swift; sourceTree = "<group>"; };
+		BA8284EA26A603FC008B04C3 /* ForgotThePasswordBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotThePasswordBuilder.swift; sourceTree = "<group>"; };
+		BA8284EB26A603FC008B04C3 /* ForgotThePasswordRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotThePasswordRouter.swift; sourceTree = "<group>"; };
+		BA8284EC26A603FD008B04C3 /* ForgotThePasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotThePasswordViewModel.swift; sourceTree = "<group>"; };
+		BA8284ED26A603FD008B04C3 /* ForgotThePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotThePasswordView.swift; sourceTree = "<group>"; };
 		BA83385F269EB7C400F73B07 /* CountryCodesContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesContracts.swift; sourceTree = "<group>"; };
 		BA833861269EB7D800F73B07 /* CountryCodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesViewModel.swift; sourceTree = "<group>"; };
 		BA833863269EB7E000F73B07 /* CountryCodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesView.swift; sourceTree = "<group>"; };
@@ -291,6 +303,7 @@
 			children = (
 				BA74091A269D9FCA00E3BC20 /* CountryCodeResponder.swift */,
 				BA74091C269D9FF400E3BC20 /* DecoderErrors.swift */,
+				BA8284E626A5FD7E008B04C3 /* CustomSegment.swift */,
 				BA8864E926A4D154000B6AB4 /* Animator.swift */,
 				BA74091E269DA00E00E3BC20 /* CountryCodesService.swift */,
 				BA8864E226A43A38000B6AB4 /* Results.swift */,
@@ -363,6 +376,18 @@
 				BA8904A826A2109A006433D2 /* AddAnySimpleCaution.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		BA8284E826A603E8008B04C3 /* ForgotThePassword */ = {
+			isa = PBXGroup;
+			children = (
+				BA8284E926A603FC008B04C3 /* ForgotThePasswordContracts.swift */,
+				BA8284EA26A603FC008B04C3 /* ForgotThePasswordBuilder.swift */,
+				BA8284EB26A603FC008B04C3 /* ForgotThePasswordRouter.swift */,
+				BA8284ED26A603FD008B04C3 /* ForgotThePasswordView.swift */,
+				BA8284EC26A603FD008B04C3 /* ForgotThePasswordViewModel.swift */,
+			);
+			path = ForgotThePassword;
 			sourceTree = "<group>";
 		};
 		BA83385E269EB79900F73B07 /* CountryCodesTableView */ = {
@@ -453,6 +478,7 @@
 		BAD9EC2026984B6800278905 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
+				BA8284E826A603E8008B04C3 /* ForgotThePassword */,
 				BAD9EC2126984B7B00278905 /* LoginContracts.swift */,
 				BAD9EC2426984B8C00278905 /* LoginViewModel.swift */,
 				BAD9EC2826984BA300278905 /* LoginView.swift */,
@@ -674,6 +700,7 @@
 				BA740915269D9F4B00E3BC20 /* Bundle.swift in Sources */,
 				BA7408BF269CC33A00E3BC20 /* SignUpMethodView.swift in Sources */,
 				BA833862269EB7D800F73B07 /* CountryCodesViewModel.swift in Sources */,
+				BA8284E726A5FD7E008B04C3 /* CustomSegment.swift in Sources */,
 				BA70FDF226A2C6B500A6BA8E /* Cons.swift in Sources */,
 				BA88355D269C32A900E7C638 /* FirstPageContracts.swift in Sources */,
 				BA883571269C458B00E7C638 /* LogInBuilder.swift in Sources */,
@@ -689,7 +716,9 @@
 				BA7408BB269CC31800E3BC20 /* SignUpMethodContracts.swift in Sources */,
 				BA8284D626A54601008B04C3 /* CALayer.swift in Sources */,
 				BAA79D8B269F09F10019BF77 /* CountryCodeCell.swift in Sources */,
+				BA8284F026A603FD008B04C3 /* ForgotThePasswordRouter.swift in Sources */,
 				BA89049F26A20FFD006433D2 /* SignupUserNameViewModel.swift in Sources */,
+				BA8284EF26A603FD008B04C3 /* ForgotThePasswordBuilder.swift in Sources */,
 				BA89049726A20F5C006433D2 /* SignUpPasswordRouter.swift in Sources */,
 				BA70FDF726A36AC000A6BA8E /* FirstPageAfterLogin.swift in Sources */,
 				BA88356F269C405400E7C638 /* FirstPageViewModel.swift in Sources */,
@@ -703,7 +732,9 @@
 				BAA79D8D269F0A0F0019BF77 /* CountryPresentation.swift in Sources */,
 				BA89045C26A176E9006433D2 /* PhoneNumber.swift in Sources */,
 				BA2B994126978B33009E05D5 /* SceneDelegate.swift in Sources */,
+				BA8284F126A603FD008B04C3 /* ForgotThePasswordViewModel.swift in Sources */,
 				BA8864E326A43A38000B6AB4 /* Results.swift in Sources */,
+				BA8284EE26A603FD008B04C3 /* ForgotThePasswordContracts.swift in Sources */,
 				BAD9EC3A26985B5F00278905 /* AppRouter.swift in Sources */,
 				BA89049526A20F5C006433D2 /* SignUpPasswordContracts.swift in Sources */,
 				BA8904A026A20FFD006433D2 /* SignupUserNameContracts.swift in Sources */,
@@ -723,6 +754,7 @@
 				BA883569269C3CE000E7C638 /* FirstPageBuilder.swift in Sources */,
 				BA89048C26A20F4B006433D2 /* SignUpBirthdayPageBuilder.swift in Sources */,
 				BA833860269EB7C400F73B07 /* CountryCodesContracts.swift in Sources */,
+				BA8284F226A603FD008B04C3 /* ForgotThePasswordView.swift in Sources */,
 				BAD9EC3826985B5200278905 /* AppContainer.swift in Sources */,
 				BAD9EC2926984BA300278905 /* LoginView.swift in Sources */,
 				BA8904A526A21013006433D2 /* PasswordFieldWithEye.swift in Sources */,

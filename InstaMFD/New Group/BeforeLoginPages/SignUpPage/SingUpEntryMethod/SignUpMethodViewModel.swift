@@ -26,8 +26,17 @@ final class SignUpMethodViewModel:SignUpMethodViewModelProtocol{
         delegate?.handleOutput(.isLoading(true))
         switch entry {
         case .email(let email):
+            // world shortest email adress has 7 character
+            guard email.contains("@"),email.contains("."), email.count >= 7   else {
+                delegate?.handleOutput(.showAnyAlert("Unvalid email type"))
+                delegate?.handleOutput(.isLoading(false))
+                return}
             model.validateEntryType(.email(email))
         case .phoneNumber(let number):
+            guard number.body.count >= 8, number.body.contains(where: { $0.isWholeNumber}) else {
+                delegate?.handleOutput(.showAnyAlert("Unvalid phone type"))
+                delegate?.handleOutput(.isLoading(false))
+                return}
             model.validateEntryType(.phoneNumber(number))
         }
     }
@@ -51,8 +60,6 @@ final class SignUpMethodViewModel:SignUpMethodViewModelProtocol{
         delegate?.handleOutput(.isLoading(true))
         model.checkPhoneVerificationCode(verificationCode: code)
     }
-    
-    
 }
 
 extension SignUpMethodViewModel:SignUpMethodModelDelegate{
