@@ -1,0 +1,1027 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22CF981F09DF6BA1E4ABA529 /* Pods_InstaMFDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE042465639F931BDF226C7 /* Pods_InstaMFDTests.framework */; };
+		8305F1CFCE01E4D4AAF53E6D /* Pods_InstaMFD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42F4AC8BBE249B9B5F14DD0 /* Pods_InstaMFD.framework */; };
+		BA2B993F26978B33009E05D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B993E26978B33009E05D5 /* AppDelegate.swift */; };
+		BA2B994126978B33009E05D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B994026978B33009E05D5 /* SceneDelegate.swift */; };
+		BA2B994926978B33009E05D5 /* InstaMFD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA2B994726978B33009E05D5 /* InstaMFD.xcdatamodeld */; };
+		BA2B994B26978B34009E05D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2B994A26978B34009E05D5 /* Assets.xcassets */; };
+		BA2B994E26978B34009E05D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2B994C26978B34009E05D5 /* LaunchScreen.storyboard */; };
+		BA2B995926978B34009E05D5 /* InstaMFDLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2B995826978B34009E05D5 /* InstaMFDLoginTests.swift */; };
+		BA70FDF226A2C6B500A6BA8E /* Cons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA70FDF126A2C6B500A6BA8E /* Cons.swift */; };
+		BA70FDF726A36AC000A6BA8E /* FirstPageAfterLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA70FDF626A36AC000A6BA8E /* FirstPageAfterLogin.swift */; };
+		BA7408BB269CC31800E3BC20 /* SignUpMethodContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7408BA269CC31800E3BC20 /* SignUpMethodContracts.swift */; };
+		BA7408BD269CC33300E3BC20 /* SignUpMethodBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7408BC269CC33300E3BC20 /* SignUpMethodBuilder.swift */; };
+		BA7408BF269CC33A00E3BC20 /* SignUpMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7408BE269CC33A00E3BC20 /* SignUpMethodView.swift */; };
+		BA7408C1269CC34900E3BC20 /* SignUpMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7408C0269CC34900E3BC20 /* SignUpMethodViewModel.swift */; };
+		BA7408C3269CC35100E3BC20 /* SignUpMethodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7408C2269CC35100E3BC20 /* SignUpMethodRouter.swift */; };
+		BA740915269D9F4B00E3BC20 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA740914269D9F4B00E3BC20 /* Bundle.swift */; };
+		BA740917269D9F6900E3BC20 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA740916269D9F6900E3BC20 /* TextField.swift */; };
+		BA740919269D9F9D00E3BC20 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA740918269D9F9D00E3BC20 /* CountryCode.swift */; };
+		BA74091B269D9FCA00E3BC20 /* CountryCodeResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA74091A269D9FCA00E3BC20 /* CountryCodeResponder.swift */; };
+		BA74091D269D9FF400E3BC20 /* DecoderErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA74091C269D9FF400E3BC20 /* DecoderErrors.swift */; };
+		BA74091F269DA00E00E3BC20 /* CountryCodesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA74091E269DA00E00E3BC20 /* CountryCodesService.swift */; };
+		BA740921269DA03900E3BC20 /* countryPhoneCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = BA740920269DA03900E3BC20 /* countryPhoneCodes.json */; };
+		BA740923269DA21000E3BC20 /* SignUpMethodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA740922269DA21000E3BC20 /* SignUpMethodModel.swift */; };
+		BA7522E0269E091B008F2251 /* InstaMFDSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7522DF269E091B008F2251 /* InstaMFDSignUpTests.swift */; };
+		BA80DA2326986E4300F184F6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA80DA2226986E4300F184F6 /* View.swift */; };
+		BA81529026A29DF300335A66 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81528F26A29DF300335A66 /* UserInfo.swift */; };
+		BA8284D426A4E038008B04C3 /* FBLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284D326A4E038008B04C3 /* FBLogOut.swift */; };
+		BA8284D626A54601008B04C3 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284D526A54601008B04C3 /* CALayer.swift */; };
+		BA833860269EB7C400F73B07 /* CountryCodesContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA83385F269EB7C400F73B07 /* CountryCodesContracts.swift */; };
+		BA833862269EB7D800F73B07 /* CountryCodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA833861269EB7D800F73B07 /* CountryCodesViewModel.swift */; };
+		BA833864269EB7E000F73B07 /* CountryCodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA833863269EB7E000F73B07 /* CountryCodesView.swift */; };
+		BA833866269EB80000F73B07 /* CountryCodesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA833865269EB80000F73B07 /* CountryCodesBuilder.swift */; };
+		BA882460269C518500F321F2 /* Cookie-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA88245F269C518500F321F2 /* Cookie-Regular.ttf */; };
+		BA882462269C568100F321F2 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA882461269C568100F321F2 /* CoreData.swift */; };
+		BA88355D269C32A900E7C638 /* FirstPageContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88355C269C32A900E7C638 /* FirstPageContracts.swift */; };
+		BA88355F269C33A500E7C638 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA88355E269C33A500E7C638 /* GoogleService-Info.plist */; };
+		BA883561269C346A00E7C638 /* FirstPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA883560269C346A00E7C638 /* FirstPageView.swift */; };
+		BA883563269C349700E7C638 /* FirstPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA883562269C349700E7C638 /* FirstPageRouter.swift */; };
+		BA883569269C3CE000E7C638 /* FirstPageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA883568269C3CE000E7C638 /* FirstPageBuilder.swift */; };
+		BA88356F269C405400E7C638 /* FirstPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA88356E269C405400E7C638 /* FirstPageViewModel.swift */; };
+		BA883571269C458B00E7C638 /* LogInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA883570269C458B00E7C638 /* LogInBuilder.swift */; };
+		BA8864E326A43A38000B6AB4 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864E226A43A38000B6AB4 /* Results.swift */; };
+		BA8864EA26A4D154000B6AB4 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8864E926A4D154000B6AB4 /* Animator.swift */; };
+		BA89045826A1664A006433D2 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89045726A1664A006433D2 /* FirebaseAuthenticationService.swift */; };
+		BA89045A26A16B58006433D2 /* GeneralErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89045926A16B58006433D2 /* GeneralErrors.swift */; };
+		BA89045C26A176E9006433D2 /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89045B26A176E9006433D2 /* PhoneNumber.swift */; };
+		BA89048B26A20F4B006433D2 /* SignUpBirthdayPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89048626A20F41006433D2 /* SignUpBirthdayPageRouter.swift */; };
+		BA89048C26A20F4B006433D2 /* SignUpBirthdayPageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89048726A20F44006433D2 /* SignUpBirthdayPageBuilder.swift */; };
+		BA89048D26A20F4B006433D2 /* SignUpBirthdayContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89048826A20F46006433D2 /* SignUpBirthdayContracts.swift */; };
+		BA89048E26A20F4B006433D2 /* SignUpBirthdayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89048926A20F48006433D2 /* SignUpBirthdayPageView.swift */; };
+		BA89048F26A20F4B006433D2 /* SignUpBirthdayPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89048A26A20F4B006433D2 /* SignUpBirthdayPageViewModel.swift */; };
+		BA89049526A20F5C006433D2 /* SignUpPasswordContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049026A20F52006433D2 /* SignUpPasswordContracts.swift */; };
+		BA89049626A20F5C006433D2 /* SignUpPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049126A20F55006433D2 /* SignUpPasswordView.swift */; };
+		BA89049726A20F5C006433D2 /* SignUpPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049226A20F57006433D2 /* SignUpPasswordRouter.swift */; };
+		BA89049826A20F5C006433D2 /* SignUpPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049326A20F59006433D2 /* SignUpPasswordViewModel.swift */; };
+		BA89049926A20F5C006433D2 /* SignUpPasswordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049426A20F5C006433D2 /* SignUpPasswordBuilder.swift */; };
+		BA89049F26A20FFD006433D2 /* SignupUserNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049A26A20FF4006433D2 /* SignupUserNameViewModel.swift */; };
+		BA8904A026A20FFD006433D2 /* SignupUserNameContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049B26A20FF6006433D2 /* SignupUserNameContracts.swift */; };
+		BA8904A126A20FFD006433D2 /* SignupUserNameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049C26A20FF9006433D2 /* SignupUserNameRouter.swift */; };
+		BA8904A226A20FFD006433D2 /* SignupUserNameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049D26A20FFB006433D2 /* SignupUserNameBuilder.swift */; };
+		BA8904A326A20FFD006433D2 /* SignupUserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA89049E26A20FFD006433D2 /* SignupUserNameView.swift */; };
+		BA8904A526A21013006433D2 /* PasswordFieldWithEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8904A426A21013006433D2 /* PasswordFieldWithEye.swift */; };
+		BA8904A726A2105E006433D2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8904A626A2105E006433D2 /* Date.swift */; };
+		BA8904A926A2109A006433D2 /* AddAnySimpleCaution.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8904A826A2109A006433D2 /* AddAnySimpleCaution.swift */; };
+		BA8904AB26A21293006433D2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8904AA26A21293006433D2 /* UIViewController.swift */; };
+		BAA79D8A269F09F10019BF77 /* CountryCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAA79D88269F09EF0019BF77 /* CountryCodeCell.xib */; };
+		BAA79D8B269F09F10019BF77 /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA79D89269F09F10019BF77 /* CountryCodeCell.swift */; };
+		BAA79D8D269F0A0F0019BF77 /* CountryPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA79D8C269F0A0F0019BF77 /* CountryPresentation.swift */; };
+		BAA79D8F269F123C0019BF77 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA79D8E269F123C0019BF77 /* Singleton.swift */; };
+		BAD9EC2226984B7B00278905 /* LoginContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9EC2126984B7B00278905 /* LoginContracts.swift */; };
+		BAD9EC2526984B8C00278905 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9EC2426984B8C00278905 /* LoginViewModel.swift */; };
+		BAD9EC2926984BA300278905 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9EC2826984BA300278905 /* LoginView.swift */; };
+		BAD9EC2B26984BB300278905 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9EC2A26984BB300278905 /* LoginRouter.swift */; };
+		BAD9EC3826985B5200278905 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9EC3726985B5200278905 /* AppContainer.swift */; };
+		BAD9EC3A26985B5F00278905 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD9EC3926985B5F00278905 /* AppRouter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA2B995526978B34009E05D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA2B993326978B33009E05D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA2B993A26978B33009E05D5;
+			remoteInfo = InstaMFD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BAF47D1E2697949B00D88811 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		35F6B6E73F00BAAE8C0A8090 /* Pods-InstaMFD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMFD.debug.xcconfig"; path = "Target Support Files/Pods-InstaMFD/Pods-InstaMFD.debug.xcconfig"; sourceTree = "<group>"; };
+		3A9DB76BE046253ADAA634C1 /* Pods-InstaMFDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMFDTests.release.xcconfig"; path = "Target Support Files/Pods-InstaMFDTests/Pods-InstaMFDTests.release.xcconfig"; sourceTree = "<group>"; };
+		75C9ABBABB26A96EB47B33D2 /* Pods-InstaMFD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMFD.release.xcconfig"; path = "Target Support Files/Pods-InstaMFD/Pods-InstaMFD.release.xcconfig"; sourceTree = "<group>"; };
+		7DE042465639F931BDF226C7 /* Pods_InstaMFDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaMFDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42F4AC8BBE249B9B5F14DD0 /* Pods_InstaMFD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaMFD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2B993B26978B33009E05D5 /* InstaMFD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaMFD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2B993E26978B33009E05D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA2B994026978B33009E05D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BA2B994826978B33009E05D5 /* InstaMFD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaMFD.xcdatamodel; sourceTree = "<group>"; };
+		BA2B994A26978B34009E05D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA2B994D26978B34009E05D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA2B994F26978B34009E05D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA2B995426978B34009E05D5 /* InstaMFDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaMFDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2B995826978B34009E05D5 /* InstaMFDLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaMFDLoginTests.swift; sourceTree = "<group>"; };
+		BA2B995A26978B34009E05D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA70FDF126A2C6B500A6BA8E /* Cons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cons.swift; sourceTree = "<group>"; };
+		BA70FDF626A36AC000A6BA8E /* FirstPageAfterLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageAfterLogin.swift; sourceTree = "<group>"; };
+		BA7408BA269CC31800E3BC20 /* SignUpMethodContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethodContracts.swift; sourceTree = "<group>"; };
+		BA7408BC269CC33300E3BC20 /* SignUpMethodBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethodBuilder.swift; sourceTree = "<group>"; };
+		BA7408BE269CC33A00E3BC20 /* SignUpMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethodView.swift; sourceTree = "<group>"; };
+		BA7408C0269CC34900E3BC20 /* SignUpMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethodViewModel.swift; sourceTree = "<group>"; };
+		BA7408C2269CC35100E3BC20 /* SignUpMethodRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethodRouter.swift; sourceTree = "<group>"; };
+		BA740914269D9F4B00E3BC20 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		BA740916269D9F6900E3BC20 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		BA740918269D9F9D00E3BC20 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		BA74091A269D9FCA00E3BC20 /* CountryCodeResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeResponder.swift; sourceTree = "<group>"; };
+		BA74091C269D9FF400E3BC20 /* DecoderErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderErrors.swift; sourceTree = "<group>"; };
+		BA74091E269DA00E00E3BC20 /* CountryCodesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesService.swift; sourceTree = "<group>"; };
+		BA740920269DA03900E3BC20 /* countryPhoneCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countryPhoneCodes.json; sourceTree = "<group>"; };
+		BA740922269DA21000E3BC20 /* SignUpMethodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMethodModel.swift; sourceTree = "<group>"; };
+		BA7522DF269E091B008F2251 /* InstaMFDSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaMFDSignUpTests.swift; sourceTree = "<group>"; };
+		BA80DA2226986E4300F184F6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		BA81528F26A29DF300335A66 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		BA8284D326A4E038008B04C3 /* FBLogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLogOut.swift; sourceTree = "<group>"; };
+		BA8284D526A54601008B04C3 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		BA83385F269EB7C400F73B07 /* CountryCodesContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesContracts.swift; sourceTree = "<group>"; };
+		BA833861269EB7D800F73B07 /* CountryCodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesViewModel.swift; sourceTree = "<group>"; };
+		BA833863269EB7E000F73B07 /* CountryCodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesView.swift; sourceTree = "<group>"; };
+		BA833865269EB80000F73B07 /* CountryCodesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodesBuilder.swift; sourceTree = "<group>"; };
+		BA88245F269C518500F321F2 /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cookie-Regular.ttf"; sourceTree = "<group>"; };
+		BA882461269C568100F321F2 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		BA88355C269C32A900E7C638 /* FirstPageContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageContracts.swift; sourceTree = "<group>"; };
+		BA88355E269C33A500E7C638 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BA883560269C346A00E7C638 /* FirstPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageView.swift; sourceTree = "<group>"; };
+		BA883562269C349700E7C638 /* FirstPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageRouter.swift; sourceTree = "<group>"; };
+		BA883568269C3CE000E7C638 /* FirstPageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageBuilder.swift; sourceTree = "<group>"; };
+		BA88356E269C405400E7C638 /* FirstPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewModel.swift; sourceTree = "<group>"; };
+		BA883570269C458B00E7C638 /* LogInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInBuilder.swift; sourceTree = "<group>"; };
+		BA8864E226A43A38000B6AB4 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		BA8864E926A4D154000B6AB4 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		BA89045726A1664A006433D2 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
+		BA89045926A16B58006433D2 /* GeneralErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralErrors.swift; sourceTree = "<group>"; };
+		BA89045B26A176E9006433D2 /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
+		BA89048626A20F41006433D2 /* SignUpBirthdayPageRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBirthdayPageRouter.swift; sourceTree = "<group>"; };
+		BA89048726A20F44006433D2 /* SignUpBirthdayPageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBirthdayPageBuilder.swift; sourceTree = "<group>"; };
+		BA89048826A20F46006433D2 /* SignUpBirthdayContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBirthdayContracts.swift; sourceTree = "<group>"; };
+		BA89048926A20F48006433D2 /* SignUpBirthdayPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBirthdayPageView.swift; sourceTree = "<group>"; };
+		BA89048A26A20F4B006433D2 /* SignUpBirthdayPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBirthdayPageViewModel.swift; sourceTree = "<group>"; };
+		BA89049026A20F52006433D2 /* SignUpPasswordContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordContracts.swift; sourceTree = "<group>"; };
+		BA89049126A20F55006433D2 /* SignUpPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordView.swift; sourceTree = "<group>"; };
+		BA89049226A20F57006433D2 /* SignUpPasswordRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordRouter.swift; sourceTree = "<group>"; };
+		BA89049326A20F59006433D2 /* SignUpPasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewModel.swift; sourceTree = "<group>"; };
+		BA89049426A20F5C006433D2 /* SignUpPasswordBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordBuilder.swift; sourceTree = "<group>"; };
+		BA89049A26A20FF4006433D2 /* SignupUserNameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUserNameViewModel.swift; sourceTree = "<group>"; };
+		BA89049B26A20FF6006433D2 /* SignupUserNameContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUserNameContracts.swift; sourceTree = "<group>"; };
+		BA89049C26A20FF9006433D2 /* SignupUserNameRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUserNameRouter.swift; sourceTree = "<group>"; };
+		BA89049D26A20FFB006433D2 /* SignupUserNameBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUserNameBuilder.swift; sourceTree = "<group>"; };
+		BA89049E26A20FFD006433D2 /* SignupUserNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUserNameView.swift; sourceTree = "<group>"; };
+		BA8904A426A21013006433D2 /* PasswordFieldWithEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordFieldWithEye.swift; sourceTree = "<group>"; };
+		BA8904A626A2105E006433D2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		BA8904A826A2109A006433D2 /* AddAnySimpleCaution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnySimpleCaution.swift; sourceTree = "<group>"; };
+		BA8904AA26A21293006433D2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		BAA79D88269F09EF0019BF77 /* CountryCodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryCodeCell.xib; sourceTree = "<group>"; };
+		BAA79D89269F09F10019BF77 /* CountryCodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		BAA79D8C269F0A0F0019BF77 /* CountryPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPresentation.swift; sourceTree = "<group>"; };
+		BAA79D8E269F123C0019BF77 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		BAD9EC2126984B7B00278905 /* LoginContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContracts.swift; sourceTree = "<group>"; };
+		BAD9EC2426984B8C00278905 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BAD9EC2826984BA300278905 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BAD9EC2A26984BB300278905 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		BAD9EC3726985B5200278905 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		BAD9EC3926985B5F00278905 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CB48F5CE637038178575B932 /* Pods-InstaMFDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaMFDTests.debug.xcconfig"; path = "Target Support Files/Pods-InstaMFDTests/Pods-InstaMFDTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA2B993826978B33009E05D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8305F1CFCE01E4D4AAF53E6D /* Pods_InstaMFD.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2B995126978B34009E05D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CF981F09DF6BA1E4ABA529 /* Pods_InstaMFDTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6295B3515579CB9EB9C0C7B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35F6B6E73F00BAAE8C0A8090 /* Pods-InstaMFD.debug.xcconfig */,
+				75C9ABBABB26A96EB47B33D2 /* Pods-InstaMFD.release.xcconfig */,
+				CB48F5CE637038178575B932 /* Pods-InstaMFDTests.debug.xcconfig */,
+				3A9DB76BE046253ADAA634C1 /* Pods-InstaMFDTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA2B993226978B33009E05D5 = {
+			isa = PBXGroup;
+			children = (
+				BA2B993D26978B33009E05D5 /* InstaMFD */,
+				BA2B995726978B34009E05D5 /* InstaMFDTests */,
+				BA2B993C26978B33009E05D5 /* Products */,
+				BA88350E269C25DC00E7C638 /* Frameworks */,
+				6295B3515579CB9EB9C0C7B4 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		BA2B993C26978B33009E05D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B993B26978B33009E05D5 /* InstaMFD.app */,
+				BA2B995426978B34009E05D5 /* InstaMFDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA2B993D26978B33009E05D5 /* InstaMFD */ = {
+			isa = PBXGroup;
+			children = (
+				BA89045626A165C6006433D2 /* FirebaseService */,
+				BA740913269D9F1600E3BC20 /* Presentations */,
+				BAD9EC3326984CB700278905 /* App */,
+				BA7408B3269CC19B00E3BC20 /* Pages */,
+				BA80DA2126986E2D00F184F6 /* Extension */,
+				BAD9EC3526984CE100278905 /* DataModel */,
+				BA7408B4269CC1ED00E3BC20 /* Helper */,
+				BAD9EC3426984CC800278905 /* Resources */,
+			);
+			path = InstaMFD;
+			sourceTree = "<group>";
+		};
+		BA2B995726978B34009E05D5 /* InstaMFDTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B995826978B34009E05D5 /* InstaMFDLoginTests.swift */,
+				BA7522DF269E091B008F2251 /* InstaMFDSignUpTests.swift */,
+				BA2B995A26978B34009E05D5 /* Info.plist */,
+			);
+			path = InstaMFDTests;
+			sourceTree = "<group>";
+		};
+		BA70FDF326A2E18A00A6BA8E /* AfterLoginPages */ = {
+			isa = PBXGroup;
+			children = (
+				BA70FDF626A36AC000A6BA8E /* FirstPageAfterLogin.swift */,
+			);
+			path = AfterLoginPages;
+			sourceTree = "<group>";
+		};
+		BA7408B3269CC19B00E3BC20 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				BA70FDF326A2E18A00A6BA8E /* AfterLoginPages */,
+				BA88355A269C316F00E7C638 /* BeforeLoginPages */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		BA7408B4269CC1ED00E3BC20 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BA74091A269D9FCA00E3BC20 /* CountryCodeResponder.swift */,
+				BA74091C269D9FF400E3BC20 /* DecoderErrors.swift */,
+				BA8864E926A4D154000B6AB4 /* Animator.swift */,
+				BA74091E269DA00E00E3BC20 /* CountryCodesService.swift */,
+				BA8864E226A43A38000B6AB4 /* Results.swift */,
+				BAA79D8E269F123C0019BF77 /* Singleton.swift */,
+				BA89045926A16B58006433D2 /* GeneralErrors.swift */,
+				BA70FDF126A2C6B500A6BA8E /* Cons.swift */,
+				BA8284D326A4E038008B04C3 /* FBLogOut.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BA7408B5269CC20200E3BC20 /* SignUpPage */ = {
+			isa = PBXGroup;
+			children = (
+				BA7408B6269CC2A100E3BC20 /* SingUpEntryMethod */,
+				BA7408B8269CC2CC00E3BC20 /* SignUpUserName */,
+				BA89048326A20ECD006433D2 /* SingUpBirthday */,
+				BA89048526A20EE7006433D2 /* SignUpPassword */,
+			);
+			path = SignUpPage;
+			sourceTree = "<group>";
+		};
+		BA7408B6269CC2A100E3BC20 /* SingUpEntryMethod */ = {
+			isa = PBXGroup;
+			children = (
+				BA83385E269EB79900F73B07 /* CountryCodesTableView */,
+				BA7408BA269CC31800E3BC20 /* SignUpMethodContracts.swift */,
+				BA7408BC269CC33300E3BC20 /* SignUpMethodBuilder.swift */,
+				BA7408BE269CC33A00E3BC20 /* SignUpMethodView.swift */,
+				BA7408C0269CC34900E3BC20 /* SignUpMethodViewModel.swift */,
+				BA740922269DA21000E3BC20 /* SignUpMethodModel.swift */,
+				BA7408C2269CC35100E3BC20 /* SignUpMethodRouter.swift */,
+			);
+			path = SingUpEntryMethod;
+			sourceTree = "<group>";
+		};
+		BA7408B8269CC2CC00E3BC20 /* SignUpUserName */ = {
+			isa = PBXGroup;
+			children = (
+				BA89049D26A20FFB006433D2 /* SignupUserNameBuilder.swift */,
+				BA89049B26A20FF6006433D2 /* SignupUserNameContracts.swift */,
+				BA89049C26A20FF9006433D2 /* SignupUserNameRouter.swift */,
+				BA89049E26A20FFD006433D2 /* SignupUserNameView.swift */,
+				BA89049A26A20FF4006433D2 /* SignupUserNameViewModel.swift */,
+			);
+			path = SignUpUserName;
+			sourceTree = "<group>";
+		};
+		BA740913269D9F1600E3BC20 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				BA740918269D9F9D00E3BC20 /* CountryCode.swift */,
+				BAA79D8C269F0A0F0019BF77 /* CountryPresentation.swift */,
+				BA89045B26A176E9006433D2 /* PhoneNumber.swift */,
+				BA81528F26A29DF300335A66 /* UserInfo.swift */,
+			);
+			path = Presentations;
+			sourceTree = "<group>";
+		};
+		BA80DA2126986E2D00F184F6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BA8904A426A21013006433D2 /* PasswordFieldWithEye.swift */,
+				BA8284D526A54601008B04C3 /* CALayer.swift */,
+				BA80DA2226986E4300F184F6 /* View.swift */,
+				BA740914269D9F4B00E3BC20 /* Bundle.swift */,
+				BA740916269D9F6900E3BC20 /* TextField.swift */,
+				BA8904AA26A21293006433D2 /* UIViewController.swift */,
+				BA8904A626A2105E006433D2 /* Date.swift */,
+				BA8904A826A2109A006433D2 /* AddAnySimpleCaution.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BA83385E269EB79900F73B07 /* CountryCodesTableView */ = {
+			isa = PBXGroup;
+			children = (
+				BA83385F269EB7C400F73B07 /* CountryCodesContracts.swift */,
+				BA833861269EB7D800F73B07 /* CountryCodesViewModel.swift */,
+				BA833863269EB7E000F73B07 /* CountryCodesView.swift */,
+				BAA79D89269F09F10019BF77 /* CountryCodeCell.swift */,
+				BAA79D88269F09EF0019BF77 /* CountryCodeCell.xib */,
+				BA833865269EB80000F73B07 /* CountryCodesBuilder.swift */,
+			);
+			path = CountryCodesTableView;
+			sourceTree = "<group>";
+		};
+		BA88350E269C25DC00E7C638 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A42F4AC8BBE249B9B5F14DD0 /* Pods_InstaMFD.framework */,
+				7DE042465639F931BDF226C7 /* Pods_InstaMFDTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA88355A269C316F00E7C638 /* BeforeLoginPages */ = {
+			isa = PBXGroup;
+			children = (
+				BA88355B269C31D100E7C638 /* FirstPage */,
+				BA7408B5269CC20200E3BC20 /* SignUpPage */,
+				BAD9EC2026984B6800278905 /* LoginPage */,
+			);
+			name = BeforeLoginPages;
+			path = "../New Group/BeforeLoginPages";
+			sourceTree = "<group>";
+		};
+		BA88355B269C31D100E7C638 /* FirstPage */ = {
+			isa = PBXGroup;
+			children = (
+				BA88355C269C32A900E7C638 /* FirstPageContracts.swift */,
+				BA883562269C349700E7C638 /* FirstPageRouter.swift */,
+				BA883568269C3CE000E7C638 /* FirstPageBuilder.swift */,
+				BA883560269C346A00E7C638 /* FirstPageView.swift */,
+				BA88356E269C405400E7C638 /* FirstPageViewModel.swift */,
+			);
+			path = FirstPage;
+			sourceTree = "<group>";
+		};
+		BA883564269C382A00E7C638 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BA88245F269C518500F321F2 /* Cookie-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BA89045626A165C6006433D2 /* FirebaseService */ = {
+			isa = PBXGroup;
+			children = (
+				BA89045726A1664A006433D2 /* FirebaseAuthenticationService.swift */,
+			);
+			path = FirebaseService;
+			sourceTree = "<group>";
+		};
+		BA89048326A20ECD006433D2 /* SingUpBirthday */ = {
+			isa = PBXGroup;
+			children = (
+				BA89048826A20F46006433D2 /* SignUpBirthdayContracts.swift */,
+				BA89048726A20F44006433D2 /* SignUpBirthdayPageBuilder.swift */,
+				BA89048626A20F41006433D2 /* SignUpBirthdayPageRouter.swift */,
+				BA89048926A20F48006433D2 /* SignUpBirthdayPageView.swift */,
+				BA89048A26A20F4B006433D2 /* SignUpBirthdayPageViewModel.swift */,
+			);
+			path = SingUpBirthday;
+			sourceTree = "<group>";
+		};
+		BA89048526A20EE7006433D2 /* SignUpPassword */ = {
+			isa = PBXGroup;
+			children = (
+				BA89049426A20F5C006433D2 /* SignUpPasswordBuilder.swift */,
+				BA89049026A20F52006433D2 /* SignUpPasswordContracts.swift */,
+				BA89049226A20F57006433D2 /* SignUpPasswordRouter.swift */,
+				BA89049126A20F55006433D2 /* SignUpPasswordView.swift */,
+				BA89049326A20F59006433D2 /* SignUpPasswordViewModel.swift */,
+			);
+			path = SignUpPassword;
+			sourceTree = "<group>";
+		};
+		BAD9EC2026984B6800278905 /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				BAD9EC2126984B7B00278905 /* LoginContracts.swift */,
+				BAD9EC2426984B8C00278905 /* LoginViewModel.swift */,
+				BAD9EC2826984BA300278905 /* LoginView.swift */,
+				BAD9EC2A26984BB300278905 /* LoginRouter.swift */,
+				BA883570269C458B00E7C638 /* LogInBuilder.swift */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		BAD9EC3326984CB700278905 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B993E26978B33009E05D5 /* AppDelegate.swift */,
+				BA2B994026978B33009E05D5 /* SceneDelegate.swift */,
+				BAD9EC3726985B5200278905 /* AppContainer.swift */,
+				BAD9EC3926985B5F00278905 /* AppRouter.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BAD9EC3426984CC800278905 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA883564269C382A00E7C638 /* Fonts */,
+				BA88355E269C33A500E7C638 /* GoogleService-Info.plist */,
+				BA2B994F26978B34009E05D5 /* Info.plist */,
+				BA2B994A26978B34009E05D5 /* Assets.xcassets */,
+				BA2B994C26978B34009E05D5 /* LaunchScreen.storyboard */,
+				BA740920269DA03900E3BC20 /* countryPhoneCodes.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BAD9EC3526984CE100278905 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA2B994726978B33009E05D5 /* InstaMFD.xcdatamodeld */,
+				BA882461269C568100F321F2 /* CoreData.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA2B993A26978B33009E05D5 /* InstaMFD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2B996826978B34009E05D5 /* Build configuration list for PBXNativeTarget "InstaMFD" */;
+			buildPhases = (
+				11301145ED7EECCB15FD13B3 /* [CP] Check Pods Manifest.lock */,
+				BA2B993726978B33009E05D5 /* Sources */,
+				BA2B993826978B33009E05D5 /* Frameworks */,
+				BA2B993926978B33009E05D5 /* Resources */,
+				BAF47D1E2697949B00D88811 /* Embed Frameworks */,
+				5ED79B16D7F4634B611A3CB7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstaMFD;
+			productName = InstaMFD;
+			productReference = BA2B993B26978B33009E05D5 /* InstaMFD.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA2B995326978B34009E05D5 /* InstaMFDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2B996B26978B34009E05D5 /* Build configuration list for PBXNativeTarget "InstaMFDTests" */;
+			buildPhases = (
+				4A30CB260070364661ADB4D9 /* [CP] Check Pods Manifest.lock */,
+				BA2B995026978B34009E05D5 /* Sources */,
+				BA2B995126978B34009E05D5 /* Frameworks */,
+				BA2B995226978B34009E05D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA2B995626978B34009E05D5 /* PBXTargetDependency */,
+			);
+			name = InstaMFDTests;
+			productName = InstaMFDTests;
+			productReference = BA2B995426978B34009E05D5 /* InstaMFDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA2B993326978B33009E05D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					BA2B993A26978B33009E05D5 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					BA2B995326978B34009E05D5 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = BA2B993A26978B33009E05D5;
+					};
+				};
+			};
+			buildConfigurationList = BA2B993626978B33009E05D5 /* Build configuration list for PBXProject "InstaMFD" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA2B993226978B33009E05D5;
+			productRefGroup = BA2B993C26978B33009E05D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA2B993A26978B33009E05D5 /* InstaMFD */,
+				BA2B995326978B34009E05D5 /* InstaMFDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA2B993926978B33009E05D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2B994E26978B34009E05D5 /* LaunchScreen.storyboard in Resources */,
+				BA2B994B26978B34009E05D5 /* Assets.xcassets in Resources */,
+				BA88355F269C33A500E7C638 /* GoogleService-Info.plist in Resources */,
+				BAA79D8A269F09F10019BF77 /* CountryCodeCell.xib in Resources */,
+				BA882460269C518500F321F2 /* Cookie-Regular.ttf in Resources */,
+				BA740921269DA03900E3BC20 /* countryPhoneCodes.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2B995226978B34009E05D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11301145ED7EECCB15FD13B3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaMFD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A30CB260070364661ADB4D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaMFDTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5ED79B16D7F4634B611A3CB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaMFD/Pods-InstaMFD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaMFD/Pods-InstaMFD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstaMFD/Pods-InstaMFD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA2B993726978B33009E05D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA89049826A20F5C006433D2 /* SignUpPasswordViewModel.swift in Sources */,
+				BA8864EA26A4D154000B6AB4 /* Animator.swift in Sources */,
+				BA740923269DA21000E3BC20 /* SignUpMethodModel.swift in Sources */,
+				BA89049926A20F5C006433D2 /* SignUpPasswordBuilder.swift in Sources */,
+				BAD9EC2226984B7B00278905 /* LoginContracts.swift in Sources */,
+				BA740915269D9F4B00E3BC20 /* Bundle.swift in Sources */,
+				BA7408BF269CC33A00E3BC20 /* SignUpMethodView.swift in Sources */,
+				BA833862269EB7D800F73B07 /* CountryCodesViewModel.swift in Sources */,
+				BA70FDF226A2C6B500A6BA8E /* Cons.swift in Sources */,
+				BA88355D269C32A900E7C638 /* FirstPageContracts.swift in Sources */,
+				BA883571269C458B00E7C638 /* LogInBuilder.swift in Sources */,
+				BA8284D426A4E038008B04C3 /* FBLogOut.swift in Sources */,
+				BA883563269C349700E7C638 /* FirstPageRouter.swift in Sources */,
+				BA89045826A1664A006433D2 /* FirebaseAuthenticationService.swift in Sources */,
+				BA882462269C568100F321F2 /* CoreData.swift in Sources */,
+				BA89045A26A16B58006433D2 /* GeneralErrors.swift in Sources */,
+				BA833864269EB7E000F73B07 /* CountryCodesView.swift in Sources */,
+				BA8904A326A20FFD006433D2 /* SignupUserNameView.swift in Sources */,
+				BA74091B269D9FCA00E3BC20 /* CountryCodeResponder.swift in Sources */,
+				BA8904A726A2105E006433D2 /* Date.swift in Sources */,
+				BA7408BB269CC31800E3BC20 /* SignUpMethodContracts.swift in Sources */,
+				BA8284D626A54601008B04C3 /* CALayer.swift in Sources */,
+				BAA79D8B269F09F10019BF77 /* CountryCodeCell.swift in Sources */,
+				BA89049F26A20FFD006433D2 /* SignupUserNameViewModel.swift in Sources */,
+				BA89049726A20F5C006433D2 /* SignUpPasswordRouter.swift in Sources */,
+				BA70FDF726A36AC000A6BA8E /* FirstPageAfterLogin.swift in Sources */,
+				BA88356F269C405400E7C638 /* FirstPageViewModel.swift in Sources */,
+				BA8904AB26A21293006433D2 /* UIViewController.swift in Sources */,
+				BA883561269C346A00E7C638 /* FirstPageView.swift in Sources */,
+				BAD9EC2526984B8C00278905 /* LoginViewModel.swift in Sources */,
+				BA2B993F26978B33009E05D5 /* AppDelegate.swift in Sources */,
+				BA740919269D9F9D00E3BC20 /* CountryCode.swift in Sources */,
+				BA81529026A29DF300335A66 /* UserInfo.swift in Sources */,
+				BAD9EC2B26984BB300278905 /* LoginRouter.swift in Sources */,
+				BAA79D8D269F0A0F0019BF77 /* CountryPresentation.swift in Sources */,
+				BA89045C26A176E9006433D2 /* PhoneNumber.swift in Sources */,
+				BA2B994126978B33009E05D5 /* SceneDelegate.swift in Sources */,
+				BA8864E326A43A38000B6AB4 /* Results.swift in Sources */,
+				BAD9EC3A26985B5F00278905 /* AppRouter.swift in Sources */,
+				BA89049526A20F5C006433D2 /* SignUpPasswordContracts.swift in Sources */,
+				BA8904A026A20FFD006433D2 /* SignupUserNameContracts.swift in Sources */,
+				BA74091F269DA00E00E3BC20 /* CountryCodesService.swift in Sources */,
+				BA80DA2326986E4300F184F6 /* View.swift in Sources */,
+				BA7408BD269CC33300E3BC20 /* SignUpMethodBuilder.swift in Sources */,
+				BA8904A226A20FFD006433D2 /* SignupUserNameBuilder.swift in Sources */,
+				BA740917269D9F6900E3BC20 /* TextField.swift in Sources */,
+				BA89048B26A20F4B006433D2 /* SignUpBirthdayPageRouter.swift in Sources */,
+				BA89048F26A20F4B006433D2 /* SignUpBirthdayPageViewModel.swift in Sources */,
+				BAA79D8F269F123C0019BF77 /* Singleton.swift in Sources */,
+				BA89048E26A20F4B006433D2 /* SignUpBirthdayPageView.swift in Sources */,
+				BA833866269EB80000F73B07 /* CountryCodesBuilder.swift in Sources */,
+				BA89048D26A20F4B006433D2 /* SignUpBirthdayContracts.swift in Sources */,
+				BA74091D269D9FF400E3BC20 /* DecoderErrors.swift in Sources */,
+				BA89049626A20F5C006433D2 /* SignUpPasswordView.swift in Sources */,
+				BA883569269C3CE000E7C638 /* FirstPageBuilder.swift in Sources */,
+				BA89048C26A20F4B006433D2 /* SignUpBirthdayPageBuilder.swift in Sources */,
+				BA833860269EB7C400F73B07 /* CountryCodesContracts.swift in Sources */,
+				BAD9EC3826985B5200278905 /* AppContainer.swift in Sources */,
+				BAD9EC2926984BA300278905 /* LoginView.swift in Sources */,
+				BA8904A526A21013006433D2 /* PasswordFieldWithEye.swift in Sources */,
+				BA7408C1269CC34900E3BC20 /* SignUpMethodViewModel.swift in Sources */,
+				BA7408C3269CC35100E3BC20 /* SignUpMethodRouter.swift in Sources */,
+				BA8904A926A2109A006433D2 /* AddAnySimpleCaution.swift in Sources */,
+				BA2B994926978B33009E05D5 /* InstaMFD.xcdatamodeld in Sources */,
+				BA8904A126A20FFD006433D2 /* SignupUserNameRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2B995026978B34009E05D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2B995926978B34009E05D5 /* InstaMFDLoginTests.swift in Sources */,
+				BA7522E0269E091B008F2251 /* InstaMFDSignUpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA2B995626978B34009E05D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA2B993A26978B33009E05D5 /* InstaMFD */;
+			targetProxy = BA2B995526978B34009E05D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA2B994C26978B34009E05D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA2B994D26978B34009E05D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA2B996626978B34009E05D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA2B996726978B34009E05D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA2B996926978B34009E05D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35F6B6E73F00BAAE8C0A8090 /* Pods-InstaMFD.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3BFY9Y29C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../Vendor/Carthage/Build/",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InstaMFD/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatihdogan.InstaMFD;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA2B996A26978B34009E05D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75C9ABBABB26A96EB47B33D2 /* Pods-InstaMFD.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = InstaMFD/InstaMFDRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../Vendor/Carthage/Build/",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InstaMFD/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatihdogan.InstaMFD;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BA2B996C26978B34009E05D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB48F5CE637038178575B932 /* Pods-InstaMFDTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3BFY9Y29C;
+				INFOPLIST_FILE = InstaMFDTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatihdogan.InstaMFDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaMFD.app/InstaMFD";
+			};
+			name = Debug;
+		};
+		BA2B996D26978B34009E05D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A9DB76BE046253ADAA634C1 /* Pods-InstaMFDTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3BFY9Y29C;
+				INFOPLIST_FILE = InstaMFDTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatihdogan.InstaMFDTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaMFD.app/InstaMFD";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA2B993626978B33009E05D5 /* Build configuration list for PBXProject "InstaMFD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2B996626978B34009E05D5 /* Debug */,
+				BA2B996726978B34009E05D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA2B996826978B34009E05D5 /* Build configuration list for PBXNativeTarget "InstaMFD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2B996926978B34009E05D5 /* Debug */,
+				BA2B996A26978B34009E05D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA2B996B26978B34009E05D5 /* Build configuration list for PBXNativeTarget "InstaMFDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2B996C26978B34009E05D5 /* Debug */,
+				BA2B996D26978B34009E05D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BA2B994726978B33009E05D5 /* InstaMFD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA2B994826978B33009E05D5 /* InstaMFD.xcdatamodel */,
+			);
+			currentVersion = BA2B994826978B33009E05D5 /* InstaMFD.xcdatamodel */;
+			path = InstaMFD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BA2B993326978B33009E05D5 /* Project object */;
+}

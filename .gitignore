@@ -1,0 +1,128 @@
+Last login: Mon Jul 19 12:49:23 on ttys005
+mehmetfatihdogan@Mehmet-MBP ~ % git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone             Clone a repository into a new directory
+   init              Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add               Add file contents to the index
+   mv                Move or rename a file, a directory, or a symlink
+   restore           Restore working tree files
+   rm                Remove files from the working tree and from the index
+   sparse-checkout   Initialize and modify the sparse-checkout
+
+examine the history and state (see also: git help revisions)
+   bisect            Use binary search to find the commit that introduced a bug
+   diff              Show changes between commits, commit and working tree, etc
+   grep              Print lines matching a pattern
+   log               Show commit logs
+   show              Show various types of objects
+   status            Show the working tree status
+
+grow, mark and tweak your common history
+   branch            List, create, or delete branches
+   commit            Record changes to the repository
+   merge             Join two or more development histories together
+   rebase            Reapply commits on top of another base tip
+   reset             Reset current HEAD to the specified state
+   switch            Switch branches
+   tag               Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch             Download objects and refs from another repository
+   pull              Fetch from and integrate with another repository or a local branch
+   push              Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+mehmetfatihdogan@Mehmet-MBP ~ % cd Sw
+cd: no such file or directory: Sw
+mehmetfatihdogan@Mehmet-MBP ~ % cd Swift/GitHub\ Projeleri/InstaMFD/InstaMFD
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote add origin https://github.com/mfd2144/InstaMFD-My-Instagram-clone.git
+error: remote origin already exists.
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm --cached
+error: No such remote: '--cached'
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm .
+error: No such remote: '.'
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm *
+usage: git remote remove <name>
+
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm .
+error: No such remote: '.'
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm https://github.com/mfd2144/mkkk.git
+error: No such remote: 'https://github.com/mfd2144/mkkk.git'
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm origin
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote add origin https://github.com/mfd2144/InstaMFD-My-Instagram-clone.git
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git branch -M main
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git push -u origin main
+To https://github.com/mfd2144/InstaMFD-My-Instagram-clone.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/mfd2144/InstaMFD-My-Instagram-clone.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote rm origin
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git remote add origin https://github.com/mfd2144/InstaMFD-My_Instagram_Clone.git
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git branch -M main
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git push -u origin main
+Enumerating objects: 4619, done.
+Counting objects: 100% (4619/4619), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4407/4407), done.
+Writing objects: 100% (4619/4619), 10.96 MiB | 120.00 KiB/s, done.
+Total 4619 (delta 1349), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1349/1349), done.
+To https://github.com/mfd2144/InstaMFD-My_Instagram_Clone.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git status
+fatal: not a git repository (or any of the parent directories): .git
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+Initialized empty Git repository in /Users/mehmetfatihdogan/Swift/GitHub Projeleri/InstaMFD/InstaMFD/.git/
+mehmetfatihdogan@Mehmet-MBP InstaMFD % git .gitignore
+git: '.gitignore' is not a git command. See 'git --help'.
+mehmetfatihdogan@Mehmet-MBP InstaMFD % >....
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo.
+# Instead, use fastlane to re-generate the screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code Injection
+#
+# After new code Injection tools there's a generated folder /iOSInjectionProject
+# https://github.com/johnno1962/injectionforxcode
+
+iOSInjectionProject

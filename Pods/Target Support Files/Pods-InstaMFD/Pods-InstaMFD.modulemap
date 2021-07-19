@@ -1,0 +1,6 @@
+framework module Pods_InstaMFD {
+  umbrella header "Pods-InstaMFD-umbrella.h"
+
+  export *
+  module * { export * }
+}
