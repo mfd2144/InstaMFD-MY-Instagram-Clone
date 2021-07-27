@@ -216,6 +216,7 @@ extension SignUpMethodView:SignUpMethodViewModelDelegate{
         case .showAnyAlert(let caution):
             addCaution(title: "Caution", message: caution)
         case .getVerificationCode:
+         
             verificationAlert()
         case .isLoading(let loading):
             if loading{
@@ -231,18 +232,19 @@ extension SignUpMethodView:SignUpMethodViewModelDelegate{
         alert.addTextField { textField in
             textField.keyboardType = .numberPad
         }
-        
+
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let actionAccept = UIAlertAction(title: "Accept", style: .default){ [weak self]_ in
             guard let self = self,let code = alert.textFields?.first?.text else {return}
             self.signUpMethodViewModel.checkVerificationCode(code: code)
         }
-        
+
         alert.addAction(actionCancel)
         alert.addAction(actionAccept)
         present(alert, animated: true, completion: nil)
     }
 }
+
 
 extension SignUpMethodView:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

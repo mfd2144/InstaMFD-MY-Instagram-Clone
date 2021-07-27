@@ -14,6 +14,7 @@ final class FirstPageView:UIViewController,FirstPageViewModelDelegate{
     private let instaLabel :UILabel = {
         let label = UILabel()
         label.font = UIFont.init(name: "Cookie-Regular", size: 50)
+        label.adjustsFontSizeToFitWidth = true
         label.text = "Instagram"
         label.textAlignment = .center
         return label
@@ -43,7 +44,7 @@ final class FirstPageView:UIViewController,FirstPageViewModelDelegate{
     
     let stack:UIStackView = {
         let stackView = UIStackView()
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.spacing = 10
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -61,7 +62,7 @@ final class FirstPageView:UIViewController,FirstPageViewModelDelegate{
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) 
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear

@@ -32,7 +32,7 @@ enum LoginRoutes{
     case signUpPage
     case fogotPassword(String?)
     case toUserPage
-    case toUserBirthday(UserInfo)
+    case toUserBirthday(BasicUserInfo)
 }
 
 protocol LoginRouterProtocol:AnyObject{

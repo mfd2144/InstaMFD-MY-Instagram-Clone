@@ -8,7 +8,7 @@
 import Foundation
 final class SignupUserNameViewModel:SignupUserNameProtocol{
     weak var delegate: SignupUserNameDelegate?
-    var userInfo:UserInfo?
+    var userInfo:BasicUserInfo?
     
     var router:SignupUserNameRouterProtocol!
     

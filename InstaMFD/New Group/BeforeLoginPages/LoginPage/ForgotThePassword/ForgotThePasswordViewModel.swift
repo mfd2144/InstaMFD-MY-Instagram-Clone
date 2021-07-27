@@ -14,10 +14,7 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
     var authService: FirebaseAuthenticationService!
     var countryCodes = [CountryCode]()
     
-    func nextButtonPressed() {
-        
-    }
-    
+
     func fbButtonPressed() {
         
             delegate?.handleOutput(.isLoading(true))
@@ -25,7 +22,7 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
                 delegate?.handleOutput(.isLoading(false))
                 switch results{
                 case.success(let userInfo):
-                    if let userInfo = userInfo as? UserInfo {
+                    if let userInfo = userInfo as? BasicUserInfo {
                         //first time sign up with facebook so user have to enter his/her birtday to save user information to firebase
                         router.routeToPage(.toUserBirthday(userInfo))
                     }else{
@@ -41,7 +38,7 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
             }
     }
     
-    func checkEntry(_ entry: Entrytype) {
+    func nextButtonPressed(_ entry: Entrytype) {
         delegate?.handleOutput(.isLoading(true))
         switch entry {
         case .email(let email):
@@ -50,7 +47,17 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
                 delegate?.handleOutput(.showAnyAlert("Unvalid email type"))
                 delegate?.handleOutput(.isLoading(false))
                 return}
-           //todo
+            authService.sendEmailPasswordReset(email: email) {[unowned self] results in
+                delegate?.handleOutput(.isLoading(false))
+                switch results{
+                case.failure(let error):
+                    guard let error = error as? GeneralErrors else {return}
+                    delegate?.handleOutput(.showAnyAlert(error.description))
+                case .success:
+                    delegate?.handleOutput(.verificationCodeSend)
+                }
+            }
+            
         case .phoneNumber(let number):
             guard number.body.count >= 8, number.body.contains(where: { $0.isWholeNumber}) else {
                 delegate?.handleOutput(.showAnyAlert("Unvalid phone type"))
@@ -59,7 +66,6 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
             //todo
         }
     }
-
     
     func countryCodeChecker() -> String {
         if let isoCode: String = NSLocale.current.regionCode{
@@ -72,10 +78,10 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
         return "+1"
     }
     
+    
     func routeToCodePage() {
         router.routeToPage(.toCodePage(countryCodes))
     }
-    
     func fetchCodes() {
         countryCodeService.fetchCodes {[unowned self] results in
             switch results{
@@ -92,6 +98,7 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
     }
     
 }
+
 
 
 

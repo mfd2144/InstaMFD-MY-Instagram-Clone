@@ -51,7 +51,7 @@ final class CountryCodesViewModel:CountryCodesViewModelProtocol{
             var flagImage: UIImage?
             let name = $0.name
             let code = $0.dialCode
-            downloadImage($0.flag) { [unowned self] result in
+            appContainer.photoDownloader.downloadImage($0.flag) { [unowned self] result in
                 
                 switch result{
                 case.failure(let err):
@@ -80,7 +80,7 @@ final class CountryCodesViewModel:CountryCodesViewModelProtocol{
     
     private func downloadImage(_ url :URL,completion:@escaping (Results<Any>)->()){
         getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { completion(.failure(DecodeErrors.decodeError("das")));return }
+            guard let data = data, error == nil else { completion(.failure(DecodeErrors.decodeError("Empty data/connection error")));return }
             let image = UIImage(data: data)
             completion(Results.success(image))
             

@@ -28,6 +28,7 @@ final class LoginView:UIViewController{
     let nameField:UITextField = {
         let field = UITextField()
         field.borderStyle = .roundedRect
+        field.keyboardType = .emailAddress
         field.setRightPaddingPoints(10)
         field.placeholder = "Email or phone number"
         return field
@@ -63,8 +64,6 @@ final class LoginView:UIViewController{
         return button
     }()
     
-  
-
     
     let lineStack:UIStackView = {
         let image = UIImageView(image: UIImage(systemName: "line.horizontal.3"))
@@ -156,8 +155,6 @@ final class LoginView:UIViewController{
     
     //MARK: - Set subviews
     private func setSubviews(){
-        
-        
         let stackViews = [nameField,passwordField,forgotThePassword,loginButton,lineStack,fBButton]
         for view in stackViews{
             stackView.addArrangedSubview(view)
@@ -253,7 +250,6 @@ extension LoginView:LoginButtonDelegate{
 
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         addCaution(title: "Caution", message: "logged out")
-
     }
 }
 

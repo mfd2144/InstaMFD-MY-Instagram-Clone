@@ -13,14 +13,18 @@ final class ForgotThePasswordRouter:ForgotThePasswordRouterProtocol{
     func routeToPage(_ route: ForgotThePasswordViewModelRoutes) {
         switch route{
         case.empty:
+            //todo
             break
         case.toCodePage(let countryCodes):
             let codeView = CountryBuilder.make(countryCodes)
             view.navigationController?.pushViewController(codeView, animated: true)
         case.toUserBirthday(let userInfo):
-            break
+            let birtdayView = SignUpBirthdayPageBuilder.make(userInfo)
+            birtdayView.modalPresentationStyle = .currentContext
+            view.present(birtdayView, animated: true, completion: nil)
         case .toUserPage:
-            break
+            let userPage = ContactsBuilder.make()
+            appContainer.router.startAnyNewView(userPage, navControlller: true)
         }
     }
     

@@ -21,7 +21,7 @@ protocol SignupUserNameDelegate:AnyObject{
 }
 
 enum SignupUserNameRoutes{
-    case birtdayPage(UserInfo)
+    case birtdayPage(BasicUserInfo)
 }
 
 protocol SignupUserNameRouterProtocol:AnyObject {

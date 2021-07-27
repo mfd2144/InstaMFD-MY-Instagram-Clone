@@ -8,7 +8,7 @@
 import UIKit
 
 final class SignUpPasswordBuilder{
-    static func make(_ usernIfo:UserInfo)->UIViewController{
+    static func make(_ usernIfo:BasicUserInfo)->UIViewController{
         let view = SignUpPasswordView()
         let router = SignUpPasswordRouter()
         let viewModel = SignUpPasswordViewModel()

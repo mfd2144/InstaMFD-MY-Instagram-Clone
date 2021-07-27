@@ -11,7 +11,7 @@ import Foundation
 final class SignUpPasswordViewModel:SignUpPasswordViewModelProtocol{
     var delegate: SignUpPasswordViewModelDelegate?
     var router:SignUpPasswordRouterProtocol!
-    var userInformation:UserInfo?
+    var userInformation:BasicUserInfo?
     var authService: FirebaseAuthenticationService?
     
     func nextButtonPressed(_ password: String) {

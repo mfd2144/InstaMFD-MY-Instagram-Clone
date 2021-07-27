@@ -80,12 +80,11 @@ final class SignupUserNameView:UIViewController{
     
     private func addButtonTarget(){
         nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
-        textField.endEditing(true)
     }
     
     @objc private func nextButtonPressed(){
         viewModel.nextButtonPressed(textField.text!)
-        
+      
     }
     
 }
@@ -97,7 +96,6 @@ extension SignupUserNameView:SignupUserNameDelegate{
             switch result {
             case .failure(let error):
                 guard let err = error as? GeneralErrors else {return}
-                print(err)
                 addCaution(title: "Caution", message:err.description)
             default:
                 break
@@ -109,9 +107,10 @@ extension SignupUserNameView:SignupUserNameDelegate{
 }
 
 extension SignupUserNameView:UITextFieldDelegate{
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
         nextButtonPressed()
-        return true
+       return true
     }
 }
 

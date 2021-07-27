@@ -22,6 +22,7 @@ final class SignUpBirthdayPageView:UIViewController{
         return stack
     }()
     
+    
     let topStack :UIStackView = {
         let imageV = UIImageView()
         let image = UIImage(named: "cake")

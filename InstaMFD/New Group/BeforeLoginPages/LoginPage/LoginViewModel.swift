@@ -69,7 +69,7 @@ final class LoginViewModel:LoginViewModelProtocol{
             delegate?.handleModelOutputs(.setLoading(false))
             switch results{
             case.success(let userInfo):
-                if let userInfo = userInfo as? UserInfo {
+                if let userInfo = userInfo as? BasicUserInfo {
                     //first time sign up with facebook so user have to enter his/her birtday to save user information to firebase
                     router.routeToPage(.toUserBirthday(userInfo))
                 }else{

@@ -86,7 +86,7 @@ final class ForgotThePasswordView:UIViewController{
     
     let stackView:UIStackView = {
         let stack = UIStackView()
-        stack.distribution = .equalSpacing
+        stack.distribution = .fillProportionally
         stack.alignment = .fill
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -187,6 +187,7 @@ final class ForgotThePasswordView:UIViewController{
         view.backgroundColor = .systemBackground
         customSegment.delegate = self
         fBButton.delegate = self
+        textField.delegate = self
         setSubviews()
         setTargets()
         setGestures()
@@ -210,16 +211,18 @@ final class ForgotThePasswordView:UIViewController{
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.7),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             stackView.topAnchor.constraint(equalTo: view.topAnchor,constant:view.frame.height/8),
-            lockImage.heightAnchor.constraint(equalToConstant: 130),
-            customSegment.heightAnchor.constraint(equalToConstant: 100),
-            nextButton.heightAnchor.constraint(equalToConstant: 50),
-            textField.heightAnchor.constraint(equalToConstant: 50),
-            fBButton.heightAnchor.constraint(equalToConstant: 50),
-            lineStack.heightAnchor.constraint(equalToConstant: 50)
+            lockImage.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.25),
+            titleLabel.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.15),
+            descriptionLabel.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.1),
+            customSegment.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.1),
+            nextButton.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.1),
+            textField.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.1),
+            fBButton.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.1),
+            lineStack.heightAnchor.constraint(equalTo: stackView.heightAnchor, multiplier: 0.1)
         ])
         
 
@@ -252,13 +255,13 @@ final class ForgotThePasswordView:UIViewController{
         backButton.addTarget(self, action:#selector(backButtonPressed), for: .touchUpInside)
     }
     
-    @objc private func nextButtonPressed(_ sender: UIButton){
-        
-//        if customSegment.selectedIndex == 0{
-//            model.checkEntry(.phoneNumber(PhoneNumber(code: codeField.text!, body: textField.text!)))
-//        }else{
-//            model.checkEntry(.email(textField.text!))
-//        }
+    @objc private func nextButtonPressed(){
+        textField.endEditing(true)
+        if customSegment.selectedIndex == 0{
+            model.nextButtonPressed(.phoneNumber(PhoneNumber(code: codeField.text!, body: textField.text!)))
+        }else{
+            model.nextButtonPressed(.email(textField.text!))
+        }
     }
     
     @objc private func backButtonPressed(_ sender: UIButton){
@@ -293,14 +296,34 @@ final class ForgotThePasswordView:UIViewController{
     @objc private func codeFieldTapped(){
         model.routeToCodePage()
     }
+    
+    //MARK: - Other Methods
+    
 }
 
 //MARK: - Outputs of model
 extension ForgotThePasswordView:ForgotThePasswordViewModelDelegate{
     func handleOutput(_ output: ForgotThePasswordViewModelOutputs) {
-        
+        switch output {
+        case .isLoading(let loading):
+            loading ? Animator.sharedInstance.showAnimation() : Animator.sharedInstance.hideAnimation()
+        case.showAnyAlert(let caution):
+            addCaution(title: "Caution", message: caution)
+        case .verificationCodeSend:
+
+                let alertController = UIAlertController(title: "Caution", message: "Reset mail sent your email", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel){ [unowned self] _ in
+                    navigationController?.popViewController(animated: true)
+                }
+                alertController.addAction(action)
+                present(alertController, animated: true)
+                
+                
+                
+        }
     }
 }
+
 
 //MARK: - Segment Functions
 extension ForgotThePasswordView:CustomSegmentControllerDelegate{
@@ -345,4 +368,10 @@ extension ForgotThePasswordView:LoginButtonDelegate{
     }
 }
 
+extension ForgotThePasswordView:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nextButtonPressed()
+        return true
+    }
+}
 

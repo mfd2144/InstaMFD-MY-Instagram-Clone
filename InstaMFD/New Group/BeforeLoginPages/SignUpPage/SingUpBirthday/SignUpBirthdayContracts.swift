@@ -23,7 +23,7 @@ protocol SignUpBirthdayPageViewModelDelegate:AnyObject{
 }
 
 enum SignUpBirthdayPageRoutes{
-    case passwordPage(UserInfo)
+    case passwordPage(BasicUserInfo)
     case toUserPage
 }
 

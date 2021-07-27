@@ -10,16 +10,17 @@ import Foundation
 
 protocol ForgotThePasswordViewModelProtocol:AnyObject{
     var delegate: ForgotThePasswordViewModelDelegate? {get set}
-    func nextButtonPressed()
     func fbButtonPressed()
     func countryCodeChecker()->String
     func routeToCodePage()
     func fetchCodes()
-    func checkEntry(_ entry: Entrytype)
+    func nextButtonPressed(_ entry: Entrytype)
+   
 }
 enum ForgotThePasswordViewModelOutputs{
     case isLoading(Bool)
     case showAnyAlert(String)
+    case verificationCodeSend
 }
 
 protocol ForgotThePasswordViewModelDelegate:AnyObject{
@@ -28,7 +29,7 @@ protocol ForgotThePasswordViewModelDelegate:AnyObject{
 
 enum ForgotThePasswordViewModelRoutes{
     case empty
-    case toUserBirthday(UserInfo)
+    case toUserBirthday(BasicUserInfo)
     case toCodePage([CountryCode])
     case toUserPage
     

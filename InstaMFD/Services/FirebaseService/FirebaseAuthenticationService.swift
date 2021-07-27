@@ -23,9 +23,10 @@ final class FirebaseAuthenticationService{
         }
     }
     
-    public func createNewUserWithEmail(userInfos:UserInfo,completion:@escaping result){
+    
+    public func createNewUserWithEmail(userInfos:BasicUserInfo,completion:@escaping result){
         guard let password = userInfos.password,
-              let date = userInfos.date,
+              let date = userInfos.birthdayDate,
               let name = userInfos.userName,
               let mail = userInfos.mail else {
             completion(.failure(GeneralErrors.unspesificError(nil)))
@@ -34,7 +35,7 @@ final class FirebaseAuthenticationService{
             if let error = error{
                 completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
             }else{
-                addUserInformationDatabase(name: name, date: date, docID: mail) { result in
+                addUserInformationDatabase(user: userInfos) { result in
                     completion(result)
                 }
             }
@@ -44,12 +45,12 @@ final class FirebaseAuthenticationService{
     
     //MARK: -Save user information database who sign up with phone number or facebook account
     
-    public func saveUserOtherInformations(userInfos:UserInfo,completion:@escaping result){
+    public func saveUserOtherInformations(userInfos:BasicUserInfo,completion:@escaping result){
         
-        guard let date = userInfos.date,
-              let name = userInfos.userName,
-              let phone = userInfos.phone else {
-            completion(.failure(GeneralErrors.unspesificError(nil)))
+        guard let _ = userInfos.birthdayDate,
+              let _ = userInfos.userName,
+              let _ = userInfos.phone else {
+            completion(.failure(GeneralErrors.unspesificError("unsufficent user model")))
             return }
         
         //Save user password for phone signup
@@ -59,7 +60,7 @@ final class FirebaseAuthenticationService{
                     completion(Results.failure(GeneralErrors.userSavingError(error.localizedDescription)))
                 }else{
                     
-                    addUserInformationDatabase(name: name, date: date, docID: phone) { result in
+                    addUserInformationDatabase(user: userInfos) { result in
                         completion(result)
                     }
                     
@@ -67,17 +68,18 @@ final class FirebaseAuthenticationService{
             })
         }else{
             // this part will used for facebook login for first time
-            addUserInformationDatabase(name: name, date: date, docID: phone) { result in
+            addUserInformationDatabase(user: userInfos ) { result in
                 completion(result)
             }
         }
     }
     
     
-    
-
-    
-    private func addUserInformationDatabase(name:String,date:Date,docID:String,completion:@escaping result){
+    private func addUserInformationDatabase(user:BasicUserInfo,completion:@escaping result){
+        guard let name = user.userName,
+              let date = user.birthdayDate else {return completion(.failure(GeneralErrors.unspesificError("Adding user information to db failure")))}
+              
+        guard let docID = Auth.auth().currentUser?.uid else {return completion(.failure(GeneralErrors.unspesificError("Unknown error")))}
         let request = Auth.auth().currentUser?.createProfileChangeRequest()
         request?.displayName = name
         request?.commitChanges(completion: { error in
@@ -89,8 +91,15 @@ final class FirebaseAuthenticationService{
                 doc.setData([
                     Cons.userName : name,
                     Cons.birthday: date,
-                    Cons.userImage:NSNull(),
-                    
+                    Cons.userImage:user.userImage as Any,
+                    Cons.createDate:Date(),
+                    Cons.follower:user.followers,
+                    Cons.following :user.following,
+                    Cons.isFBAccount: user.isFBAccount,
+                    Cons.posts :user.posts,
+                    Cons.name: user.name as Any,
+                    Cons.mail:user.mail as Any,
+                    Cons.phone :user.phone as Any
                 ]) { error in
                     if let error = error{
                         completion(Results.failure(GeneralErrors.userSavingError(error.localizedDescription)))
@@ -103,7 +112,7 @@ final class FirebaseAuthenticationService{
         })
     }
     
- 
+    
     
     //MARK: - Facebook login
     
@@ -116,14 +125,21 @@ final class FirebaseAuthenticationService{
             let name = authResult?.user.displayName ?? "fbUser-\(String(authResult!.user.uid))"
             //            let mail = authResult?.additionalUserInfo?.profile
             let docID = authResult?.user.uid
-            let userInfo = UserInfo(userName:name , date: nil, password: nil, phone: docID, mail: nil, isFBAccount: true)
+            var userImage: String?
+            if let imageUrl = authResult?.user.photoURL{
+                userImage = imageUrl.absoluteString
+            }
+            
+            let userInfo = BasicUserInfo(userName: name, birtdayDate: nil, name: nil, phone: nil, mail: docID, password: nil, isFBAccount: true, following: 0, followers: 0, userImage: userImage, createDate:Date(), posts: 0 )
             checkFBUserLoginBefore(userInfo: userInfo) { result in
                 completion(result)
             }
         }
     }
-    private func checkFBUserLoginBefore(userInfo: UserInfo,completion:@escaping result){
-        guard let docID = userInfo.phone else {return}
+    
+    
+    private func checkFBUserLoginBefore(userInfo: BasicUserInfo,completion:@escaping result){
+        guard let docID = userInfo.mail else {return}
         
         let collectionPath = Firestore.firestore().collection(Cons.user)
         let query = collectionPath.whereField(FieldPath.documentID(), isEqualTo: docID)
@@ -135,21 +151,20 @@ final class FirebaseAuthenticationService{
             if  querySnapShot?.documents.first != nil {
                 //user login before
                 completion(.success(nil))
-                return
             }else{
                 completion(.success(userInfo))
             }
-                }
         }
+    }
     
-    public func addFBUserInfo(userInfo:UserInfo,completion:@escaping result){
+    public func addFBUserInfo(userInfo:BasicUserInfo,completion:@escaping result){
         
-            guard let id = userInfo.phone,
-                  let name = userInfo.userName,
-                  let date = userInfo.date else {
-                completion(.failure(GeneralErrors.unspesificError("unsufficient data")))
-                return
-            }
+        guard let id = Auth.auth().currentUser?.uid,
+              let name = userInfo.userName,
+              let date = userInfo.birthdayDate else {
+            completion(.failure(GeneralErrors.unspesificError("unsufficient data")))
+            return
+        }
         let collectionPath = Firestore.firestore().collection(Cons.user)
         
         collectionPath
@@ -157,20 +172,42 @@ final class FirebaseAuthenticationService{
             .setData([
                         Cons.userName : name,
                         Cons.birthday: date,
-                        Cons.userImage:NSNull()]){ error in
+                Cons.userImage:userInfo.userImage as Any,
+                        Cons.createDate:Date(),
+                        Cons.follower:userInfo.followers,
+                        Cons.following :userInfo.following,
+                        Cons.isFBAccount: userInfo.isFBAccount,
+                        Cons.posts :userInfo.posts,
+                Cons.name: userInfo.name as Any,
+                Cons.mail:NSNull(),
+                Cons.phone :userInfo.phone as Any
+            ]){ error in
                 if let error = error{
                     completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
                 }else{
+                    
                     completion(.success(nil))
                 }
             }
     }
-
+    
     //MARK: - Sign out
     public func signOut()throws{
         try Auth.auth().signOut()
     }
     
+    //MARK: -
+    
+    public func sendEmailPasswordReset(email:String,completion:@escaping result){
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error{
+                completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
+            }else{
+                completion(.success(nil))
+            }
+        }
+        
+    }
+    
 }
-
 

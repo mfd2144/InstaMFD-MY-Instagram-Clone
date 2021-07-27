@@ -14,9 +14,8 @@ final class SignUpPasswordRouter:SignUpPasswordRouterProtocol{
     func routeToPage(_ route: SignUpPasswordRoutes) {
         switch route {
         case .toUserPage:
-            let  newView = FirstPageAfterLogin()
-            newView.modalPresentationStyle = .fullScreen
-            view.present(newView, animated: true, completion: nil)
+            let  newView = ContactsBuilder.make()
+            appContainer.router.startAnyNewView(newView, navControlller: true)
             
         }
     }

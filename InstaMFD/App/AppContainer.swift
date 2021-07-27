@@ -15,4 +15,7 @@ final class AppContainer{
     let router = AppRouter()
     
     let authService = FirebaseAuthenticationService()
+    let userService = FirebaseUserServices()
+    let photoDownloader = PhotoDownloader()
+    
 }

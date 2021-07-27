@@ -9,7 +9,7 @@ import UIKit
 
 
 final class SignUpBirthdayPageBuilder{
-    static func make(_ userInfo: UserInfo)->UIViewController{
+    static func make(_ userInfo: BasicUserInfo)->UIViewController{
         let view = SignUpBirthdayPageView()
         let router = SignUpBirthdayPageRouter()
         let viewModel = SignUpBirthdayPageViewModel()

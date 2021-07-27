@@ -29,9 +29,8 @@ final class AppRouter{
     func startAsLoggedIn(_ windowScene: UIWindowScene){
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let newView = FirstPageAfterLogin()
+        let newView = UserPageBuilder.make()
         let navController = UINavigationController(rootViewController: newView)
-        navController.navigationBar.isHidden = true
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
         

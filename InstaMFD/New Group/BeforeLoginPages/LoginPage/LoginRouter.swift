@@ -22,8 +22,8 @@ final class LoginRouter:LoginRouterProtocol{
             view.navigationController?.pushViewController(newView, animated: true)
        
         case.toUserPage:
-            let userPage = FirstPageAfterLogin()
-            appContainer.router.startAnyNewView(userPage, navControlller: true)
+            let newView = UserPageBuilder.make()
+            appContainer.router.startAnyNewView(newView, navControlller: true)
         
         case.toUserBirthday(let userInfo):
             let birtdayView = SignUpBirthdayPageBuilder.make(userInfo)

@@ -16,7 +16,7 @@ final class SignUpBirthdayPageRouter:SignUpBirthdayPageRouterProtocol{
             let newView = SignUpPasswordBuilder.make(userInfo)
             view.navigationController?.pushViewController(newView, animated:true)
         case.toUserPage:
-            let userPage = FirstPageAfterLogin()
+            let userPage = ContactsBuilder.make()
             appContainer.router.startAnyNewView(userPage, navControlller: true)
         }
     }

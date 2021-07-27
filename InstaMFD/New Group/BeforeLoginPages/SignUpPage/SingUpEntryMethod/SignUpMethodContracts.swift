@@ -53,7 +53,7 @@ protocol SignUpMethodViewModelDelegate:AnyObject{
 
 enum SingUpMethodRoutes{
     case alredyHaveAccount(String)
-    case userNamePage(UserInfo)
+    case userNamePage(BasicUserInfo)
     case countryCodesPage([CountryCode])
 }
 

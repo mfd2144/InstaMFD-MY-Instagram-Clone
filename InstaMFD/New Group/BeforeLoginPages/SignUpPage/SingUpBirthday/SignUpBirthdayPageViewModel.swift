@@ -12,7 +12,7 @@ import UIKit
 
 final class SignUpBirthdayPageViewModel:SignUpBirthdayPageViewModelProtocol{
    weak var delegate: SignUpBirthdayPageViewModelDelegate?
-    var userInfo:UserInfo?
+    var userInfo:BasicUserInfo?
     var router:SignUpBirthdayPageRouterProtocol!
     var authService: FirebaseAuthenticationService?
     
@@ -21,7 +21,7 @@ final class SignUpBirthdayPageViewModel:SignUpBirthdayPageViewModelProtocol{
         guard var userInfo = userInfo else {return}
         if userInfo.isFBAccount == true {
             //this is for facebook user first itme sign up to system
-            userInfo.date = date
+            userInfo.birthdayDate = date
             authService?.addFBUserInfo(userInfo: userInfo, completion: {[unowned self] result in
                 delegate?.handleOutputs(.isLoading(false))
                 switch result{
@@ -35,7 +35,7 @@ final class SignUpBirthdayPageViewModel:SignUpBirthdayPageViewModelProtocol{
             })
         }else{
             delegate?.handleOutputs(.isLoading(true))
-            userInfo.date = date
+            userInfo.birthdayDate = date
             router.routeToPage(.passwordPage(userInfo))
         }
        

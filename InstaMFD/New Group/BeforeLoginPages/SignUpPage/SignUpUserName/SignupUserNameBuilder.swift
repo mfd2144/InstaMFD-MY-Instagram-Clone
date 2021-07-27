@@ -8,7 +8,7 @@
 import UIKit
 
 final class SignupUserNameBuilder{
-    static func make(_ userInfo:UserInfo)->UIViewController{
+    static func make(_ userInfo:BasicUserInfo)->UIViewController{
         let view = SignupUserNameView()
         let router = SignupUserNameRouter()
         let viewModel = SignupUserNameViewModel()

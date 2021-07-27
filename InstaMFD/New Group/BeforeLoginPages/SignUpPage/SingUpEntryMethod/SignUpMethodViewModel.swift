@@ -93,12 +93,12 @@ extension SignUpMethodViewModel:SignUpMethodModelDelegate{
                 delegate?.handleOutput(.showAnyAlert("Login Error \(error.localizedDescription)"))
             case .success(let mailOrPhone):
                 guard let mailOrPhone = mailOrPhone as? Entrytype else{return}
-                var userInfo:UserInfo?
+                var userInfo:BasicUserInfo?
                 switch mailOrPhone {
                 case .email(let mail):
-                    userInfo = UserInfo(userName: nil, date: nil, password: nil, mail: mail)
+                userInfo = BasicUserInfo(userName: nil, birtdayDate: nil, name: nil, phone: nil, mail: mail, password: nil, isFBAccount: false, following: 0, followers: 0, userImage: nil, createDate: nil, posts: 0)
                 case .phoneNumber(let phone):
-                    userInfo = UserInfo(userName: nil, date: nil, password: nil, phone: phone.body)
+                    userInfo = BasicUserInfo(userName: nil, birtdayDate: nil, name: nil, phone: phone.body, mail:nil, password: nil, isFBAccount: false, following: 0, followers: 0, userImage: nil, createDate: nil, posts: 0)
                 }
                 guard let userInfo = userInfo else {return}
                 router.routeToPage(.userNamePage(userInfo))
