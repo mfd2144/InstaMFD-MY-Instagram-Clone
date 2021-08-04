@@ -216,7 +216,6 @@ extension SignUpMethodView:SignUpMethodViewModelDelegate{
         case .showAnyAlert(let caution):
             addCaution(title: "Caution", message: caution)
         case .getVerificationCode:
-         
             verificationAlert()
         case .isLoading(let loading):
             if loading{

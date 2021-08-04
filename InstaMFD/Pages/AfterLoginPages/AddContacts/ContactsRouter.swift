@@ -14,8 +14,10 @@ final class ContactsRouter:ContactsRouterProtocol{
         case .nextPage:
             let newView = AddProfilePhotoBuilder.make()
             view.navigationController?.pushViewController(newView, animated: true)
-        default:
-            break
+        case.toAddContactsPage(let contacetedList,let parentDelegate):
+            let newView = ContactedUserBuilder.make(parentDelegate:parentDelegate , contacetedList)
+            
+            view.navigationController?.pushViewController(newView, animated: true)
         }
     }
     

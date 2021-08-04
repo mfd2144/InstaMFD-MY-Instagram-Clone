@@ -16,6 +16,7 @@ final class SignupUserNameViewModel:SignupUserNameProtocol{
         if userName == ""{
             delegate?.handleOutputs(.resultAfterNextPressed(.failure(GeneralErrors.emptyFieldError)))
         }else if userName.count < 5{
+            
             delegate?.handleOutputs(.resultAfterNextPressed(.failure(GeneralErrors.unsufficientText)))
            
         }else{

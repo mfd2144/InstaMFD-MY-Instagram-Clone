@@ -8,7 +8,7 @@
 import Foundation
 
 final class SignUpMethodViewModel:SignUpMethodViewModelProtocol{
-
+    
     weak var delegate: SignUpMethodViewModelDelegate?
     var model : SignUpMethodModelProtocol!{
         didSet{
@@ -64,6 +64,7 @@ final class SignUpMethodViewModel:SignUpMethodViewModelProtocol{
 
 extension SignUpMethodViewModel:SignUpMethodModelDelegate{
     func handleOutput(_ output: SignUpMethodModelOutput) {
+        delegate?.handleOutput(.isLoading(false))
         switch output {
         case .resultOfCodes(let codeResult):
             switch codeResult {
@@ -80,10 +81,11 @@ extension SignUpMethodViewModel:SignUpMethodModelDelegate{
         case .pushPhoneVerificationAlert(let result):
             switch result {
             case .failure(let err):
-                delegate?.handleOutput(.showAnyAlert("Verification Error \(err.localizedDescription)"))
+                guard let err = err as? GeneralErrors else { return }
+                delegate?.handleOutput(.showAnyAlert("Verification Error \(err.description)"))
             default:
                 delegate?.handleOutput(.getVerificationCode)
-            break
+                break
             }
             
         case .signupMethodResult(let result):
@@ -96,17 +98,14 @@ extension SignUpMethodViewModel:SignUpMethodModelDelegate{
                 var userInfo:BasicUserInfo?
                 switch mailOrPhone {
                 case .email(let mail):
-                userInfo = BasicUserInfo(userName: nil, birtdayDate: nil, name: nil, phone: nil, mail: mail, password: nil, isFBAccount: false, following: 0, followers: 0, userImage: nil, createDate: nil, posts: 0)
+                    userInfo = BasicUserInfo(userName: nil, birtdayDate: nil, name: nil, phone: nil, mail: mail, password: nil, isFBAccount: false, following: 0, followers: 0, userImage: nil, createDate: nil, posts: 0)
                 case .phoneNumber(let phone):
                     userInfo = BasicUserInfo(userName: nil, birtdayDate: nil, name: nil, phone: phone.body, mail:nil, password: nil, isFBAccount: false, following: 0, followers: 0, userImage: nil, createDate: nil, posts: 0)
                 }
                 guard let userInfo = userInfo else {return}
                 router.routeToPage(.userNamePage(userInfo))
             }
-        case .isLoading(let setLoading):
-            delegate?.handleOutput(.isLoading(setLoading))
+            
         }
     }
-    
-    
 }

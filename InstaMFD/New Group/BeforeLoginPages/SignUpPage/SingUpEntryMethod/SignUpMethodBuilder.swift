@@ -19,6 +19,7 @@ final class SignUpMethodBuilder{
         viewModel.delegate = view
         view.signUpMethodViewModel = viewModel
         model.service = service
+        model.authService = appContainer.authService
         model.delegate = viewModel
         viewModel.model = model
         router.view = view

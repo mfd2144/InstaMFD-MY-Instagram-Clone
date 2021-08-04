@@ -9,6 +9,7 @@ import Foundation
 
 final class UserPageViewModel:UserPageViewModelProtocol{
     weak var delegate: UserPageViewModelDelegate?
+    var router:UserPageRouter!
     var userService :FirebaseUserServices!
     
     func fetchUserInfo(){
@@ -34,6 +35,10 @@ final class UserPageViewModel:UserPageViewModelProtocol{
     
     func myPhotos() {
         
+    }
+    
+    func addNewMedia() {
+        router.routeToPage(.toNewPost)
     }
     
     func taggedPhotos() {

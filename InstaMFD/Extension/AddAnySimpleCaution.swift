@@ -11,12 +11,14 @@ import UIKit
 
 final class AddAnySimpleCaution:UIAlertController{
    
-    convenience init(title:String,message:String) {
+    
+    convenience init(title:String,message:String,handler :((UIAlertAction) -> Void )? = nil) {
         self.init(title: title, message: message, preferredStyle: .alert)
-        addAction()
+        addAction(handler)
     }
-    private func addAction(){
-        let action = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+    private func addAction(_ handler :((UIAlertAction) -> Void )?){
+ 
+        let action = UIAlertAction(title: "cancel", style: .cancel, handler: handler)
         addAction(action)
     }
 }

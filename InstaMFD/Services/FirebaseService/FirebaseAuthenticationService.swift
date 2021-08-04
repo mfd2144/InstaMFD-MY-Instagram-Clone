@@ -42,6 +42,68 @@ final class FirebaseAuthenticationService{
         }
         
     }
+    //MARK: - Phone Login
+    
+    public func sendVerificationNumberToPhone(_ number: (String),completion:@escaping result) {
+        PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { verificationID, error in
+            if let error = error {
+                completion(.failure(SignUpMethodErrors.phoneVerificationError(error.localizedDescription)))
+            }
+            UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+            completion(.success(nil))
+        }
+    }
+    
+    
+    func checkPhoneVerificationCode(verificationCode:String, phone:PhoneNumber,completion:@escaping result){
+        
+        guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else {return}
+        let credential = PhoneAuthProvider.provider().credential(
+            withVerificationID: verificationID,
+            verificationCode: verificationCode
+        )
+        
+        Auth.auth().signIn(with: credential) { authResult, error in
+            
+            if let error = error {
+                let newError = GeneralErrors.unspesificError(error.localizedDescription)
+                completion(.failure(newError))
+            }else{
+                let phoneMail = "\(phone.body)@phonenumber.com"
+                authResult?.user.updateEmail(to:phoneMail , completion: { error in
+                    if let error = error {
+                        completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
+                    }
+                    else{
+                        completion(.success(nil))
+                        
+                    }
+                })
+            }
+            
+        }
+    }
+    
+    
+    func isPhoneLoginBefore(phone:PhoneNumber,completion:@escaping result){
+        Firestore.firestore().collection(Cons.user).whereField(Cons.phone, isEqualTo: phone.body).getDocuments { snapShot, error in
+            if let error = error{
+                completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
+            }
+            
+            if snapShot?.documents.isEmpty == false{
+                completion(.success(nil))
+            }else{
+                completion(.failure(GeneralErrors.unspesificError("there isn't any account relevant to this number")))
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    
     
     //MARK: -Save user information database who sign up with phone number or facebook account
     
@@ -78,7 +140,9 @@ final class FirebaseAuthenticationService{
     private func addUserInformationDatabase(user:BasicUserInfo,completion:@escaping result){
         guard let name = user.userName,
               let date = user.birthdayDate else {return completion(.failure(GeneralErrors.unspesificError("Adding user information to db failure")))}
-              
+       
+        let createDate =  user.createDate ?? Date()
+        
         guard let docID = Auth.auth().currentUser?.uid else {return completion(.failure(GeneralErrors.unspesificError("Unknown error")))}
         let request = Auth.auth().currentUser?.createProfileChangeRequest()
         request?.displayName = name
@@ -88,18 +152,20 @@ final class FirebaseAuthenticationService{
             }else{
                 //Save some user info to firestore dynamic database
                 let doc = Firestore.firestore().collection(Cons.user).document(docID)
+                
                 doc.setData([
                     Cons.userName : name,
                     Cons.birthday: date,
                     Cons.userImage:user.userImage as Any,
-                    Cons.createDate:Date(),
+                    Cons.createDate:createDate,
                     Cons.follower:user.followers,
                     Cons.following :user.following,
                     Cons.isFBAccount: user.isFBAccount,
                     Cons.posts :user.posts,
                     Cons.name: user.name as Any,
                     Cons.mail:user.mail as Any,
-                    Cons.phone :user.phone as Any
+                    Cons.phone :user.phone as Any,
+                    
                 ]) { error in
                     if let error = error{
                         completion(Results.failure(GeneralErrors.userSavingError(error.localizedDescription)))
@@ -167,20 +233,22 @@ final class FirebaseAuthenticationService{
         }
         let collectionPath = Firestore.firestore().collection(Cons.user)
         
+        
         collectionPath
             .document(id)
             .setData([
-                        Cons.userName : name,
-                        Cons.birthday: date,
+                Cons.userName : name,
+                Cons.birthday: date,
                 Cons.userImage:userInfo.userImage as Any,
-                        Cons.createDate:Date(),
-                        Cons.follower:userInfo.followers,
-                        Cons.following :userInfo.following,
-                        Cons.isFBAccount: userInfo.isFBAccount,
-                        Cons.posts :userInfo.posts,
+                Cons.createDate:Date(),
+                Cons.follower:userInfo.followers,
+                Cons.following :userInfo.following,
+                Cons.isFBAccount: userInfo.isFBAccount,
+                Cons.posts :userInfo.posts,
                 Cons.name: userInfo.name as Any,
                 Cons.mail:NSNull(),
-                Cons.phone :userInfo.phone as Any
+                Cons.phone :userInfo.phone as Any,
+                
             ]){ error in
                 if let error = error{
                     completion(.failure(GeneralErrors.unspesificError(error.localizedDescription)))
@@ -206,6 +274,14 @@ final class FirebaseAuthenticationService{
                 completion(.success(nil))
             }
         }
+        
+    }
+    
+    private func createSubFolder(userUID:String,completion:result){
+        
+        
+        
+        
         
     }
     

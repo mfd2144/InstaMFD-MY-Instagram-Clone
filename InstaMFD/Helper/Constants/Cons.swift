@@ -7,6 +7,10 @@
 
 import Foundation
 struct Cons{
+    static let storyPhotosAlbum = "StoryPhotosAlbum"
+    static let userPhotosAlbum = "UserPhotosAlbum"
+    static let taggedPhotosAlbum = "TaggedPhotosAlbum"
+    static let photoAlbums = "PhotoAlbums"
     static let user = "User"
     static let userName = "user_name"
     static let birthday = "birthday"
@@ -19,6 +23,9 @@ struct Cons{
     static let createDate = "create_date"
     static let mail = "mail"
     static let phone = "phone"
+    static let friendsRef = "Friends"
+    static let userID = "userID"
+    static let contactMethod = "contactMethod"
 }
 
 

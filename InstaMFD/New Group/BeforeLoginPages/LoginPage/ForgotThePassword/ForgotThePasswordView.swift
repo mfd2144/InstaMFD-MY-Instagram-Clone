@@ -299,6 +299,25 @@ final class ForgotThePasswordView:UIViewController{
     
     //MARK: - Other Methods
     
+    private func verificationAlert(){
+        let alert = UIAlertController(title: "Verification Code", message: "Enter sending verification code", preferredStyle: .alert)
+        alert.addTextField {textField in
+            textField.keyboardType = .numberPad
+        }
+
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let actionAccept = UIAlertAction(title: "Accept", style: .default){[unowned self] _ in
+            guard let code = alert.textFields?.first?.text else {return}
+            model.checkVerificationCode(code: code)
+        }
+
+        alert.addAction(actionCancel)
+        alert.addAction(actionAccept)
+        present(alert, animated: true, completion: nil)
+    }
+
+
+
 }
 
 //MARK: - Outputs of model
@@ -319,7 +338,9 @@ extension ForgotThePasswordView:ForgotThePasswordViewModelDelegate{
                 present(alertController, animated: true)
                 
                 
-                
+        case.getVerificationCode:
+            verificationAlert()
+            
         }
     }
 }

@@ -14,6 +14,8 @@ final class SignUpPasswordViewModel:SignUpPasswordViewModelProtocol{
     var userInformation:BasicUserInfo?
     var authService: FirebaseAuthenticationService?
     
+  
+    
     func nextButtonPressed(_ password: String) {
         delegate?.handleOutput(.isLoading(true))
         guard password.count > 5 else {

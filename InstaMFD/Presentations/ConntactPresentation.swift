@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct ContactPresentation{
+struct ContactPresentation:Equatable{
     var name:String?
     var phones:[String?]
     var emails:[String?]

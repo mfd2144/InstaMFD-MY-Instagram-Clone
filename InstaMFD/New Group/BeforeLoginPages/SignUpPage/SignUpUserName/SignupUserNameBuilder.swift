@@ -14,6 +14,7 @@ final class SignupUserNameBuilder{
         let viewModel = SignupUserNameViewModel()
         view.viewModel = viewModel
         viewModel.router = router
+        viewModel.delegate = view
         router.view = view
         viewModel.userInfo = userInfo
         return view

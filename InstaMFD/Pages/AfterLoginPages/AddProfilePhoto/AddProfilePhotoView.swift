@@ -56,7 +56,7 @@ final class AddProfilePhotoView:UIViewController{
         stack.axis = .vertical
         stack.spacing = 10
         stack.alignment = .fill
-        stack.distribution = .fill
+        stack.distribution = .fillEqually
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = .init(top: 0, left: 10 , bottom: 0, right: 10)
         return stack
@@ -97,7 +97,7 @@ final class AddProfilePhotoView:UIViewController{
         view.addSubview(bottomStack)
         view.addSubview(imageView)
         view.addSubview(topStack)
-        bottomStack.putSubviewAt(top: nil, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, topDis: 0, bottomDis: 0, leadingDis: 0, trailingDis: 0, heightFloat: 120, widthFloat: nil, heightDimension: nil, widthDimension: nil)
+        bottomStack.putSubviewAt(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, topDis: 0, bottomDis: 0, leadingDis: 0, trailingDis: 0, heightFloat: 120, widthFloat: nil, heightDimension: nil, widthDimension: nil)
 
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 150),
@@ -125,6 +125,7 @@ final class AddProfilePhotoView:UIViewController{
 
 extension AddProfilePhotoView: AddProfilePhotoViewModelDelegate{
     func handleOutput(_ output: AddProfilePhotoViewModelOutputs) {
+     
         switch output {
         case .isLoading(let loading):
             if loading{

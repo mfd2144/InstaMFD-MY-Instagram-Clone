@@ -68,6 +68,7 @@ final class SignUpPasswordView:UIViewController{
         view.backgroundColor = .systemBackground
         setSubviews()
         textField.delegate = self
+        navigationItem.hidesBackButton = true
         addButtonTarget()
     }
     

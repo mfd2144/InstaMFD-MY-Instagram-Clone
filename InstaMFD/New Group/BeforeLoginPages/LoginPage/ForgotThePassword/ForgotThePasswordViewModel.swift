@@ -12,8 +12,9 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
     var router : ForgotThePasswordRouterProtocol!
     var countryCodeService:CodesServiceProtocol!
     var authService: FirebaseAuthenticationService!
+    var userService :FirebaseUserServices!
     var countryCodes = [CountryCode]()
-    
+    var phone:PhoneNumber?
 
     func fbButtonPressed() {
         
@@ -59,13 +60,57 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
             }
             
         case .phoneNumber(let number):
+          
             guard number.body.count >= 8, number.body.contains(where: { $0.isWholeNumber}) else {
                 delegate?.handleOutput(.showAnyAlert("Unvalid phone type"))
                 delegate?.handleOutput(.isLoading(false))
                 return}
-            //todo
+            
+            authService.isPhoneLoginBefore(phone: number) { [unowned self]isPhoneInList in
+                switch isPhoneInList{
+                case.failure(let error):
+                    delegate?.handleOutput(.isLoading(false))
+                   guard let error = error as? GeneralErrors else {return}
+                    delegate?.handleOutput(.showAnyAlert(error.description))
+                case.success:
+                    sendVerificationCode(number:number)
+                }
+            }
+            
+            
+ 
         }
     }
+    
+    
+    
+    
+    
+    func checkVerificationCode(code: String){
+        delegate?.handleOutput(.isLoading(true))
+        guard let phoneNumber = phone else {return}
+        authService.checkPhoneVerificationCode(verificationCode: code, phone:phoneNumber) { [unowned self] result in
+            
+            switch result{
+            case.failure(let error):
+                delegate?.handleOutput(.isLoading(false))
+                delegate?.handleOutput(.showAnyAlert((error as? GeneralErrors)?.description ?? "error"))
+            case.success:
+                userService.getUserBasicInfo { result in
+                    delegate?.handleOutput(.isLoading(false))
+                    switch result{
+                    case.failure(let error):
+                        guard let error = error as? GeneralErrors else {return}
+                        delegate?.handleOutput(.showAnyAlert(error.description))
+                    case.success(let user):
+                        guard let user = user as? BasicUserInfo else{delegate?.handleOutput(.showAnyAlert("failure")); return}
+                        router.routeToPage(.toPasswordPage(user))
+                    }
+                }
+            }
+        }
+    }
+    
     
     func countryCodeChecker() -> String {
         if let isoCode: String = NSLocale.current.regionCode{
@@ -82,6 +127,9 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
     func routeToCodePage() {
         router.routeToPage(.toCodePage(countryCodes))
     }
+    
+
+    
     func fetchCodes() {
         countryCodeService.fetchCodes {[unowned self] results in
             switch results{
@@ -96,6 +144,20 @@ final class ForgotThePasswordViewModel:ForgotThePasswordViewModelProtocol{
             }
         }
     }
+    
+    private func sendVerificationCode(number:PhoneNumber){
+        authService.sendVerificationNumberToPhone(number.copleteNumber) {[unowned self] result in
+            delegate?.handleOutput(.isLoading(false))
+            switch result{
+            case.success:
+                phone = number
+                delegate?.handleOutput(.getVerificationCode)
+            case .failure(let error):
+                delegate?.handleOutput(.showAnyAlert((error as? GeneralErrors)?.description ?? "error"))
+            }
+        }
+    }
+    
     
 }
 

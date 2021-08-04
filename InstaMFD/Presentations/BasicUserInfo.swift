@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct BasicUserInfo :Hashable{
     var userName:String?
@@ -38,7 +39,7 @@ struct BasicUserInfo :Hashable{
         self.birthdayDate = birtdayDate
         self.name = name
         self.phone = phone
-        self.mail = mail
+        self.mail = mail?.lowercased()
         self.isFBAccount = isFBAccount
         self.following = following
         self.followers = followers
@@ -50,15 +51,26 @@ struct BasicUserInfo :Hashable{
     
     init(dict:Dictionary<String,Any>){
         self.userName = dict[Cons.userName] as? String
-        self.birthdayDate = dict[Cons.birthday] as? Date
+        
+        if let timestamp = dict[Cons.birthday] as? Timestamp {
+            self.birthdayDate = timestamp.dateValue()
+        }else{
+            self.birthdayDate = nil
+        }
+        
+        if let timestamp = dict[Cons.createDate] as? Timestamp{
+            self.createDate = timestamp.dateValue()
+        }else{
+            self.createDate = nil        }
+        
         self.name = dict[Cons.name] as? String
         self.phone = dict[Cons.phone] as? String
-        self.mail = dict[Cons.mail] as? String
+        self.mail = (dict[Cons.mail] as? String)?.lowercased()
         self.isFBAccount = dict[Cons.isFBAccount] as? Bool ?? false
         self.following = dict[Cons.following] as? Int ?? 0
         self.followers = dict[Cons.follower] as? Int ?? 0
         self.posts = dict[Cons.posts] as? Int ?? 0
-        self.createDate = dict[Cons.createDate] as? Date
+      
         self.password = nil
         self.userImage = dict[Cons.userImage] as? String
     }

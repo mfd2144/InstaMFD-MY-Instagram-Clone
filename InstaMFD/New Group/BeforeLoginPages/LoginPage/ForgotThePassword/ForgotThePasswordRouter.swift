@@ -12,9 +12,9 @@ final class ForgotThePasswordRouter:ForgotThePasswordRouterProtocol{
     
     func routeToPage(_ route: ForgotThePasswordViewModelRoutes) {
         switch route{
-        case.empty:
-            //todo
-            break
+        case.toPasswordPage(let user):
+            let passwordPage = SignUpPasswordBuilder.make(user)
+            view.navigationController?.pushViewController(passwordPage, animated: true)
         case.toCodePage(let countryCodes):
             let codeView = CountryBuilder.make(countryCodes)
             view.navigationController?.pushViewController(codeView, animated: true)

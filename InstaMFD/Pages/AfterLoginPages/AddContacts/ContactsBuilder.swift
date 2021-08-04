@@ -15,6 +15,7 @@ final class ContactsBuilder{
         view.model = viewModel
         viewModel.delegate = view
         viewModel.router = router
+        viewModel.service = appContainer.userService
         router.view = view
         return view
     }

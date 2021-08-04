@@ -18,12 +18,14 @@ final class AddProfilePhotosViewModel:AddProfilePhotoViewModelProtocol{
         delegate?.handleOutput(.isLoading(true))
         userService.addPhotoToDB(data) {[weak self] result in
             guard let self = self else {return}
-            self.delegate?.handleOutput(.isLoading(false))
             switch result{
             case.failure(let error):
-                print((error as? GeneralErrors)?.description)
+                self.delegate?.handleOutput(.isLoading(false))
+                guard let error = (error as? GeneralErrors)?.description else {return}
+                self.delegate?.handleOutput(.showAnyAlert(error))
             case.success:
-                print("success")
+                self.delegate?.handleOutput(.isLoading(false))
+                self.router.routeToPage(.nextPage)
             }
         }
     }
@@ -37,3 +39,5 @@ final class AddProfilePhotosViewModel:AddProfilePhotoViewModelProtocol{
     }
     
 }
+
+

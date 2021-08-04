@@ -13,14 +13,16 @@ final class ForgotThePasswordBuilder{
         let view = ForgotThePasswordView()
         let viewModel = ForgotThePasswordViewModel()
         let router = ForgotThePasswordRouter()
-        let authService = FirebaseAuthenticationService()
         let codeService = CodesService()
+        
         view.model = viewModel
         viewModel.delegate = view
-        viewModel.authService = authService
+        viewModel.authService = appContainer.authService
+        viewModel.userService = appContainer.userService
         viewModel.countryCodeService = codeService
         viewModel.router = router
         router.view = view
+        
         return view
     }
 }

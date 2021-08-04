@@ -46,7 +46,7 @@ final class ContactsView:UIViewController{
         stack.axis = .vertical
         stack.spacing = 10
         stack.alignment = .fill
-        stack.distribution = .fill
+        stack.distribution = .fillEqually
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = .init(top: 0, left: 10 , bottom: 0, right: 10)
         return stack
@@ -86,7 +86,7 @@ final class ContactsView:UIViewController{
         view.addSubview(bottomStack)
         view.addSubview(imageView)
         view.addSubview(topStack)
-        bottomStack.putSubviewAt(top: nil, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, topDis: 0, bottomDis: 0, leadingDis: 0, trailingDis: 0, heightFloat: 120, widthFloat: nil, heightDimension: nil, widthDimension: nil)
+        bottomStack.putSubviewAt(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, topDis: 0, bottomDis: 0, leadingDis: 0, trailingDis: 0, heightFloat: 120, widthFloat: nil, heightDimension: nil, widthDimension: nil)
 
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: 150),
@@ -111,15 +111,14 @@ final class ContactsView:UIViewController{
         model.fetchContactsPermission()
     }
 }
+
 extension ContactsView:ContactsViewModelDelegate{
     func handleOutput(_ output: ContactsViewModelOutputs) {
         switch output {
-        case .anyErrorOccured(let generalErrors):
-            break
-            //todo
+        case .anyErrorOccured(let caution):
+            addCaution(title: "Caution", message: caution)
         case .isLoading(let loading):
-            //todo
-        break
+            loading ? Animator.sharedInstance.showAnimation() : Animator.sharedInstance.hideAnimation()
         }
     }
 

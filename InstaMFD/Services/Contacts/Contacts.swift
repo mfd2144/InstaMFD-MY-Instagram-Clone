@@ -43,6 +43,9 @@ final class Contacts:ContactsDelegate{
     }
     
     public func getContact(completion:@escaping (Results<[ContactPresentation]>) -> ()){
+        contactList = [CNContact]()
+        contacts = [ContactPresentation]()
+        
         DispatchQueue.main.async(execute: {[unowned self] in
             
             contactResult { results in

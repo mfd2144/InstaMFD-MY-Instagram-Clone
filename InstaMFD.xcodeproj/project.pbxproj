@@ -46,6 +46,36 @@
 		BA75220326AEB98C00352D1F /* AddProfilePhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7521FE26AEB98C00352D1F /* AddProfilePhotoRouter.swift */; };
 		BA75220426AEB98C00352D1F /* AddProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7521FF26AEB98C00352D1F /* AddProfilePhotoView.swift */; };
 		BA7522E0269E091B008F2251 /* InstaMFDSignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7522DF269E091B008F2251 /* InstaMFDSignUpTests.swift */; };
+		BA76EB7D26B2A8C1009DF421 /* UserDataItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76EB7C26B2A8C1009DF421 /* UserDataItems.swift */; };
+		BA76EB8026B2A921009DF421 /* UserPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76EB7F26B2A921009DF421 /* UserPageSection.swift */; };
+		BA76EB8326B2ACBF009DF421 /* NewPostCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76EB8226B2ACBF009DF421 /* NewPostCollectionViewSection.swift */; };
+		BA782C8C26B4036400FF5B2D /* FilterPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782C8626B4036300FF5B2D /* FilterPostView.swift */; };
+		BA782C8D26B4036400FF5B2D /* FilterPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782C8726B4036400FF5B2D /* FilterPostRouter.swift */; };
+		BA782C8E26B4036400FF5B2D /* FilterPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782C8826B4036400FF5B2D /* FilterPostViewModel.swift */; };
+		BA782C8F26B4036400FF5B2D /* FilterPostContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782C8926B4036400FF5B2D /* FilterPostContracts.swift */; };
+		BA782C9026B4036400FF5B2D /* PhotoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782C8A26B4036400FF5B2D /* PhotoFilter.swift */; };
+		BA782C9126B4036400FF5B2D /* FilterPostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA782C8B26B4036400FF5B2D /* FilterPostBuilder.swift */; };
+		BA78364B26B9255800D4DA28 /* ContactedUserContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78364A26B9255800D4DA28 /* ContactedUserContract.swift */; };
+		BA78364D26B9256500D4DA28 /* ContactedUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78364C26B9256500D4DA28 /* ContactedUserViewModel.swift */; };
+		BA78364F26B9256E00D4DA28 /* ContactedUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78364E26B9256E00D4DA28 /* ContactedUserView.swift */; };
+		BA78365126B9257B00D4DA28 /* ContactedUserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78365026B9257B00D4DA28 /* ContactedUserBuilder.swift */; };
+		BA78365426B9286D00D4DA28 /* ContactedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78365326B9286D00D4DA28 /* ContactedUserCell.swift */; };
+		BA78365626B93E9700D4DA28 /* ContactedUserPresenatation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78365526B93E9700D4DA28 /* ContactedUserPresenatation.swift */; };
+		BA78FDF726B2914100C541A3 /* NewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDE726B2914100C541A3 /* NewPostViewModel.swift */; };
+		BA78FDF826B2914100C541A3 /* NewPostBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDE826B2914100C541A3 /* NewPostBuilder.swift */; };
+		BA78FDFA26B2914100C541A3 /* NewPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDEA26B2914100C541A3 /* NewPostCell.swift */; };
+		BA78FDFB26B2914100C541A3 /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDEB26B2914100C541A3 /* ImageContainer.swift */; };
+		BA78FDFC26B2914100C541A3 /* NewPostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDEC26B2914100C541A3 /* NewPostRouter.swift */; };
+		BA78FDFD26B2914100C541A3 /* Album Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDED26B2914100C541A3 /* Album Presentation.swift */; };
+		BA78FDFE26B2914100C541A3 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDEE26B2914100C541A3 /* NewPostView.swift */; };
+		BA78FDFF26B2914100C541A3 /* NewPostContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDEF26B2914100C541A3 /* NewPostContracts.swift */; };
+		BA78FE0026B2914100C541A3 /* SelectAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDF126B2914100C541A3 /* SelectAlbumViewModel.swift */; };
+		BA78FE0126B2914100C541A3 /* SelectAlbumBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDF226B2914100C541A3 /* SelectAlbumBuilder.swift */; };
+		BA78FE0226B2914100C541A3 /* SelectAlbumRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDF326B2914100C541A3 /* SelectAlbumRouter.swift */; };
+		BA78FE0326B2914100C541A3 /* SelectAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDF426B2914100C541A3 /* SelectAlbumView.swift */; };
+		BA78FE0426B2914100C541A3 /* SelectAlbumContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDF526B2914100C541A3 /* SelectAlbumContracts.swift */; };
+		BA78FE0526B2914100C541A3 /* SmartAlbumChoicer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FDF626B2914100C541A3 /* SmartAlbumChoicer.swift */; };
+		BA78FE0726B2928200C541A3 /* UserPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA78FE0626B2928200C541A3 /* UserPageRouter.swift */; };
 		BA80DA2326986E4300F184F6 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA80DA2226986E4300F184F6 /* View.swift */; };
 		BA81529026A29DF300335A66 /* BasicUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81528F26A29DF300335A66 /* BasicUserInfo.swift */; };
 		BA8284D426A4E038008B04C3 /* FBLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8284D326A4E038008B04C3 /* FBLogOut.swift */; };
@@ -183,6 +213,36 @@
 		BA7521FE26AEB98C00352D1F /* AddProfilePhotoRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfilePhotoRouter.swift; sourceTree = "<group>"; };
 		BA7521FF26AEB98C00352D1F /* AddProfilePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfilePhotoView.swift; sourceTree = "<group>"; };
 		BA7522DF269E091B008F2251 /* InstaMFDSignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaMFDSignUpTests.swift; sourceTree = "<group>"; };
+		BA76EB7C26B2A8C1009DF421 /* UserDataItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataItems.swift; sourceTree = "<group>"; };
+		BA76EB7F26B2A921009DF421 /* UserPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageSection.swift; sourceTree = "<group>"; };
+		BA76EB8226B2ACBF009DF421 /* NewPostCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostCollectionViewSection.swift; sourceTree = "<group>"; };
+		BA782C8626B4036300FF5B2D /* FilterPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPostView.swift; sourceTree = "<group>"; };
+		BA782C8726B4036400FF5B2D /* FilterPostRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPostRouter.swift; sourceTree = "<group>"; };
+		BA782C8826B4036400FF5B2D /* FilterPostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPostViewModel.swift; sourceTree = "<group>"; };
+		BA782C8926B4036400FF5B2D /* FilterPostContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPostContracts.swift; sourceTree = "<group>"; };
+		BA782C8A26B4036400FF5B2D /* PhotoFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFilter.swift; sourceTree = "<group>"; };
+		BA782C8B26B4036400FF5B2D /* FilterPostBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPostBuilder.swift; sourceTree = "<group>"; };
+		BA78364A26B9255800D4DA28 /* ContactedUserContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedUserContract.swift; sourceTree = "<group>"; };
+		BA78364C26B9256500D4DA28 /* ContactedUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedUserViewModel.swift; sourceTree = "<group>"; };
+		BA78364E26B9256E00D4DA28 /* ContactedUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedUserView.swift; sourceTree = "<group>"; };
+		BA78365026B9257B00D4DA28 /* ContactedUserBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedUserBuilder.swift; sourceTree = "<group>"; };
+		BA78365326B9286D00D4DA28 /* ContactedUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedUserCell.swift; sourceTree = "<group>"; };
+		BA78365526B93E9700D4DA28 /* ContactedUserPresenatation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactedUserPresenatation.swift; sourceTree = "<group>"; };
+		BA78FDE726B2914100C541A3 /* NewPostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewModel.swift; sourceTree = "<group>"; };
+		BA78FDE826B2914100C541A3 /* NewPostBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostBuilder.swift; sourceTree = "<group>"; };
+		BA78FDEA26B2914100C541A3 /* NewPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCell.swift; sourceTree = "<group>"; };
+		BA78FDEB26B2914100C541A3 /* ImageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageContainer.swift; sourceTree = "<group>"; };
+		BA78FDEC26B2914100C541A3 /* NewPostRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostRouter.swift; sourceTree = "<group>"; };
+		BA78FDED26B2914100C541A3 /* Album Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Album Presentation.swift"; sourceTree = "<group>"; };
+		BA78FDEE26B2914100C541A3 /* NewPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		BA78FDEF26B2914100C541A3 /* NewPostContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostContracts.swift; sourceTree = "<group>"; };
+		BA78FDF126B2914100C541A3 /* SelectAlbumViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAlbumViewModel.swift; sourceTree = "<group>"; };
+		BA78FDF226B2914100C541A3 /* SelectAlbumBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAlbumBuilder.swift; sourceTree = "<group>"; };
+		BA78FDF326B2914100C541A3 /* SelectAlbumRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAlbumRouter.swift; sourceTree = "<group>"; };
+		BA78FDF426B2914100C541A3 /* SelectAlbumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAlbumView.swift; sourceTree = "<group>"; };
+		BA78FDF526B2914100C541A3 /* SelectAlbumContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAlbumContracts.swift; sourceTree = "<group>"; };
+		BA78FDF626B2914100C541A3 /* SmartAlbumChoicer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartAlbumChoicer.swift; sourceTree = "<group>"; };
+		BA78FE0626B2928200C541A3 /* UserPageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageRouter.swift; sourceTree = "<group>"; };
 		BA80DA2226986E4300F184F6 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		BA81528F26A29DF300335A66 /* BasicUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUserInfo.swift; sourceTree = "<group>"; };
 		BA8284D326A4E038008B04C3 /* FBLogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLogOut.swift; sourceTree = "<group>"; };
@@ -332,7 +392,7 @@
 			children = (
 				BAAA0D6326A8A50600E46337 /* AddContacts */,
 				BA7521EE26AEB3F200352D1F /* AddProfilePhoto */,
-				BA7521DA26AEAA4D00352D1F /* UserPage */,
+				BA76EB8A26B2B6A9009DF421 /* UserPageAndSubPages */,
 			);
 			path = AfterLoginPages;
 			sourceTree = "<group>";
@@ -349,18 +409,11 @@
 		BA7408B4269CC1ED00E3BC20 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BA74091A269D9FCA00E3BC20 /* CountryCodeResponder.swift */,
-				BA74091C269D9FF400E3BC20 /* DecoderErrors.swift */,
-				BA8284E626A5FD7E008B04C3 /* CustomSegment.swift */,
-				BA8864E926A4D154000B6AB4 /* Animator.swift */,
-				BA74091E269DA00E00E3BC20 /* CountryCodesService.swift */,
-				BA8864E226A43A38000B6AB4 /* Results.swift */,
-				BAA79D8E269F123C0019BF77 /* Singleton.swift */,
-				BA89045926A16B58006433D2 /* GeneralErrors.swift */,
-				BA70FDF126A2C6B500A6BA8E /* Cons.swift */,
-				BA8284D326A4E038008B04C3 /* FBLogOut.swift */,
-				BA746F8526AED23E005423CC /* PhotoPicker.swift */,
-				BA746F8726AF3563005423CC /* PhotoDownloader.swift */,
+				BA76EB8826B2B2B6009DF421 /* Constants */,
+				BA76EB8726B2B265009DF421 /* Singletons */,
+				BA76EB8626B2B260009DF421 /* Enums */,
+				BA76EB8526B2B25A009DF421 /* Classes */,
+				BA76EB8426B2B22C009DF421 /* Structs */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -405,6 +458,8 @@
 		BA740913269D9F1600E3BC20 /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
+				BA78FDED26B2914100C541A3 /* Album Presentation.swift */,
+				BA78365526B93E9700D4DA28 /* ContactedUserPresenatation.swift */,
 				BAAA0D6426A8A51B00E46337 /* ConntactPresentation.swift */,
 				BA740918269D9F9D00E3BC20 /* CountryCode.swift */,
 				BAA79D8C269F0A0F0019BF77 /* CountryPresentation.swift */,
@@ -417,14 +472,11 @@
 		BA7521DA26AEAA4D00352D1F /* UserPage */ = {
 			isa = PBXGroup;
 			children = (
-				BA7521E226AEAA7B00352D1F /* PhotoCell.swift */,
-				BA7521DE26AEAA7B00352D1F /* PhotoHeaderReusableView.swift */,
-				BA7521E326AEAA7B00352D1F /* StoryCell.swift */,
-				BA7521E026AEAA7B00352D1F /* UserCell.swift */,
+				BA76EB7E26B2A8DD009DF421 /* UserPageViewVendors */,
 				BA7521DB26AEAA7A00352D1F /* UserPageBuilder.swift */,
-				BA7521DD26AEAA7B00352D1F /* UserPageCollectionViewLayout.swift */,
 				BA7521DF26AEAA7B00352D1F /* UserPageContracts.swift */,
 				BA7521DC26AEAA7A00352D1F /* UserPageView.swift */,
+				BA78FE0626B2928200C541A3 /* UserPageRouter.swift */,
 				BA7521E126AEAA7B00352D1F /* UserPageViewModel.swift */,
 			);
 			path = UserPage;
@@ -440,6 +492,147 @@
 				BA7521FB26AEB98B00352D1F /* AddProfilePhotoBuilder.swift */,
 			);
 			path = AddProfilePhoto;
+			sourceTree = "<group>";
+		};
+		BA76EB7E26B2A8DD009DF421 /* UserPageViewVendors */ = {
+			isa = PBXGroup;
+			children = (
+				BA76EB7F26B2A921009DF421 /* UserPageSection.swift */,
+				BA7521E226AEAA7B00352D1F /* PhotoCell.swift */,
+				BA7521DE26AEAA7B00352D1F /* PhotoHeaderReusableView.swift */,
+				BA7521E326AEAA7B00352D1F /* StoryCell.swift */,
+				BA7521DD26AEAA7B00352D1F /* UserPageCollectionViewLayout.swift */,
+				BA7521E026AEAA7B00352D1F /* UserCell.swift */,
+				BA76EB7C26B2A8C1009DF421 /* UserDataItems.swift */,
+			);
+			path = UserPageViewVendors;
+			sourceTree = "<group>";
+		};
+		BA76EB8126B2AC74009DF421 /* NewPostViewVendors */ = {
+			isa = PBXGroup;
+			children = (
+				BA78FDEA26B2914100C541A3 /* NewPostCell.swift */,
+				BA76EB8226B2ACBF009DF421 /* NewPostCollectionViewSection.swift */,
+			);
+			path = NewPostViewVendors;
+			sourceTree = "<group>";
+		};
+		BA76EB8426B2B22C009DF421 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				BA74091A269D9FCA00E3BC20 /* CountryCodeResponder.swift */,
+				BA78FDEB26B2914100C541A3 /* ImageContainer.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		BA76EB8526B2B25A009DF421 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BA78FDF626B2914100C541A3 /* SmartAlbumChoicer.swift */,
+				BA8284E626A5FD7E008B04C3 /* CustomSegment.swift */,
+				BA8284D326A4E038008B04C3 /* FBLogOut.swift */,
+				BA746F8726AF3563005423CC /* PhotoDownloader.swift */,
+				BA746F8526AED23E005423CC /* PhotoPicker.swift */,
+				BA74091E269DA00E00E3BC20 /* CountryCodesService.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BA76EB8626B2B260009DF421 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				BA89045926A16B58006433D2 /* GeneralErrors.swift */,
+				BA74091C269D9FF400E3BC20 /* DecoderErrors.swift */,
+				BA8864E226A43A38000B6AB4 /* Results.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		BA76EB8726B2B265009DF421 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				BAA79D8E269F123C0019BF77 /* Singleton.swift */,
+				BA8864E926A4D154000B6AB4 /* Animator.swift */,
+			);
+			path = Singletons;
+			sourceTree = "<group>";
+		};
+		BA76EB8826B2B2B6009DF421 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BA70FDF126A2C6B500A6BA8E /* Cons.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		BA76EB8926B2B694009DF421 /* FilterPages */ = {
+			isa = PBXGroup;
+			children = (
+				BA782C8B26B4036400FF5B2D /* FilterPostBuilder.swift */,
+				BA782C8926B4036400FF5B2D /* FilterPostContracts.swift */,
+				BA782C8726B4036400FF5B2D /* FilterPostRouter.swift */,
+				BA782C8626B4036300FF5B2D /* FilterPostView.swift */,
+				BA782C8826B4036400FF5B2D /* FilterPostViewModel.swift */,
+				BA782C8A26B4036400FF5B2D /* PhotoFilter.swift */,
+			);
+			path = FilterPages;
+			sourceTree = "<group>";
+		};
+		BA76EB8A26B2B6A9009DF421 /* UserPageAndSubPages */ = {
+			isa = PBXGroup;
+			children = (
+				BA76EB8926B2B694009DF421 /* FilterPages */,
+				BA78FDE626B2914100C541A3 /* NewPostPage */,
+				BA7521DA26AEAA4D00352D1F /* UserPage */,
+			);
+			path = UserPageAndSubPages;
+			sourceTree = "<group>";
+		};
+		BA78364826B9252A00D4DA28 /* ContactedUserTableView */ = {
+			isa = PBXGroup;
+			children = (
+				BA78365226B9283500D4DA28 /* Vendors */,
+				BA78364A26B9255800D4DA28 /* ContactedUserContract.swift */,
+				BA78364C26B9256500D4DA28 /* ContactedUserViewModel.swift */,
+				BA78364E26B9256E00D4DA28 /* ContactedUserView.swift */,
+				BA78365026B9257B00D4DA28 /* ContactedUserBuilder.swift */,
+			);
+			path = ContactedUserTableView;
+			sourceTree = "<group>";
+		};
+		BA78365226B9283500D4DA28 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				BA78365326B9286D00D4DA28 /* ContactedUserCell.swift */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		BA78FDE626B2914100C541A3 /* NewPostPage */ = {
+			isa = PBXGroup;
+			children = (
+				BA76EB8126B2AC74009DF421 /* NewPostViewVendors */,
+				BA78FDE726B2914100C541A3 /* NewPostViewModel.swift */,
+				BA78FDEE26B2914100C541A3 /* NewPostView.swift */,
+				BA78FDE826B2914100C541A3 /* NewPostBuilder.swift */,
+				BA78FDEC26B2914100C541A3 /* NewPostRouter.swift */,
+				BA78FDEF26B2914100C541A3 /* NewPostContracts.swift */,
+				BA78FDF026B2914100C541A3 /* SelectAlbum */,
+			);
+			path = NewPostPage;
+			sourceTree = "<group>";
+		};
+		BA78FDF026B2914100C541A3 /* SelectAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				BA78FDF126B2914100C541A3 /* SelectAlbumViewModel.swift */,
+				BA78FDF226B2914100C541A3 /* SelectAlbumBuilder.swift */,
+				BA78FDF326B2914100C541A3 /* SelectAlbumRouter.swift */,
+				BA78FDF426B2914100C541A3 /* SelectAlbumView.swift */,
+				BA78FDF526B2914100C541A3 /* SelectAlbumContracts.swift */,
+			);
+			path = SelectAlbum;
 			sourceTree = "<group>";
 		};
 		BA80DA2126986E2D00F184F6 /* Extension */ = {
@@ -558,6 +751,7 @@
 		BAAA0D6326A8A50600E46337 /* AddContacts */ = {
 			isa = PBXGroup;
 			children = (
+				BA78364826B9252A00D4DA28 /* ContactedUserTableView */,
 				BAAA0D6A26A8A51B00E46337 /* ContactsBuilder.swift */,
 				BAAA0D6726A8A51B00E46337 /* ContactsContracts.swift */,
 				BAAA0D6826A8A51B00E46337 /* ContactsRouter.swift */,
@@ -803,11 +997,15 @@
 			files = (
 				BA89049826A20F5C006433D2 /* SignUpPasswordViewModel.swift in Sources */,
 				BA8864EA26A4D154000B6AB4 /* Animator.swift in Sources */,
+				BA78FE0026B2914100C541A3 /* SelectAlbumViewModel.swift in Sources */,
 				BA7521EC26AEAA7C00352D1F /* StoryCell.swift in Sources */,
+				BA78FDF726B2914100C541A3 /* NewPostViewModel.swift in Sources */,
+				BA78FDFD26B2914100C541A3 /* Album Presentation.swift in Sources */,
 				BAAA0D6B26A8A51B00E46337 /* ConntactPresentation.swift in Sources */,
 				BA740923269DA21000E3BC20 /* SignUpMethodModel.swift in Sources */,
 				BA7521E426AEAA7C00352D1F /* UserPageBuilder.swift in Sources */,
 				BA89049926A20F5C006433D2 /* SignUpPasswordBuilder.swift in Sources */,
+				BA782C8C26B4036400FF5B2D /* FilterPostView.swift in Sources */,
 				BA746F8826AF3563005423CC /* PhotoDownloader.swift in Sources */,
 				BAD9EC2226984B7B00278905 /* LoginContracts.swift in Sources */,
 				BA740915269D9F4B00E3BC20 /* Bundle.swift in Sources */,
@@ -815,35 +1013,47 @@
 				BA833862269EB7D800F73B07 /* CountryCodesViewModel.swift in Sources */,
 				BA75220426AEB98C00352D1F /* AddProfilePhotoView.swift in Sources */,
 				BA8284E726A5FD7E008B04C3 /* CustomSegment.swift in Sources */,
+				BA78FDFC26B2914100C541A3 /* NewPostRouter.swift in Sources */,
 				BA70FDF226A2C6B500A6BA8E /* Cons.swift in Sources */,
 				BA88355D269C32A900E7C638 /* FirstPageContracts.swift in Sources */,
 				BAAA0D7126A8A51B00E46337 /* ContactsBuilder.swift in Sources */,
 				BA7521EB26AEAA7C00352D1F /* PhotoCell.swift in Sources */,
 				BAAA0D6E26A8A51B00E46337 /* ContactsContracts.swift in Sources */,
+				BA78364F26B9256E00D4DA28 /* ContactedUserView.swift in Sources */,
 				BA883571269C458B00E7C638 /* LogInBuilder.swift in Sources */,
 				BA75220026AEB98C00352D1F /* AddProfilePhotoBuilder.swift in Sources */,
 				BAAA0D6F26A8A51B00E46337 /* ContactsRouter.swift in Sources */,
+				BA78364B26B9255800D4DA28 /* ContactedUserContract.swift in Sources */,
 				BAAA0D7026A8A51B00E46337 /* ContactsView.swift in Sources */,
 				BA8284D426A4E038008B04C3 /* FBLogOut.swift in Sources */,
 				BA883563269C349700E7C638 /* FirstPageRouter.swift in Sources */,
+				BA76EB8326B2ACBF009DF421 /* NewPostCollectionViewSection.swift in Sources */,
 				BA7521E926AEAA7C00352D1F /* UserCell.swift in Sources */,
+				BA78365126B9257B00D4DA28 /* ContactedUserBuilder.swift in Sources */,
 				BA89045826A1664A006433D2 /* FirebaseAuthenticationService.swift in Sources */,
 				BA882462269C568100F321F2 /* CoreData.swift in Sources */,
 				BA89045A26A16B58006433D2 /* GeneralErrors.swift in Sources */,
+				BA76EB7D26B2A8C1009DF421 /* UserDataItems.swift in Sources */,
 				BA833864269EB7E000F73B07 /* CountryCodesView.swift in Sources */,
 				BA746F8626AED23F005423CC /* PhotoPicker.swift in Sources */,
 				BA8904A326A20FFD006433D2 /* SignupUserNameView.swift in Sources */,
 				BA74091B269D9FCA00E3BC20 /* CountryCodeResponder.swift in Sources */,
+				BA782C8E26B4036400FF5B2D /* FilterPostViewModel.swift in Sources */,
 				BA8904A726A2105E006433D2 /* Date.swift in Sources */,
 				BA7408BB269CC31800E3BC20 /* SignUpMethodContracts.swift in Sources */,
+				BA782C8D26B4036400FF5B2D /* FilterPostRouter.swift in Sources */,
 				BA8284D626A54601008B04C3 /* CALayer.swift in Sources */,
 				BAA79D8B269F09F10019BF77 /* CountryCodeCell.swift in Sources */,
+				BA78FE0126B2914100C541A3 /* SelectAlbumBuilder.swift in Sources */,
 				BA8284F026A603FD008B04C3 /* ForgotThePasswordRouter.swift in Sources */,
 				BA89049F26A20FFD006433D2 /* SignupUserNameViewModel.swift in Sources */,
 				BA8284EF26A603FD008B04C3 /* ForgotThePasswordBuilder.swift in Sources */,
 				BA89049726A20F5C006433D2 /* SignUpPasswordRouter.swift in Sources */,
 				BA88356F269C405400E7C638 /* FirstPageViewModel.swift in Sources */,
 				BA7521E726AEAA7C00352D1F /* PhotoHeaderReusableView.swift in Sources */,
+				BA78FE0226B2914100C541A3 /* SelectAlbumRouter.swift in Sources */,
+				BA76EB8026B2A921009DF421 /* UserPageSection.swift in Sources */,
+				BA78FDFB26B2914100C541A3 /* ImageContainer.swift in Sources */,
 				BA8904AB26A21293006433D2 /* UIViewController.swift in Sources */,
 				BA883561269C346A00E7C638 /* FirstPageView.swift in Sources */,
 				BAD9EC2526984B8C00278905 /* LoginViewModel.swift in Sources */,
@@ -855,6 +1065,8 @@
 				BA89045C26A176E9006433D2 /* PhoneNumber.swift in Sources */,
 				BA75220226AEB98C00352D1F /* AddProfilePhotoViewModel.swift in Sources */,
 				BA2B994126978B33009E05D5 /* SceneDelegate.swift in Sources */,
+				BA782C9126B4036400FF5B2D /* FilterPostBuilder.swift in Sources */,
+				BA78FE0326B2914100C541A3 /* SelectAlbumView.swift in Sources */,
 				BA8284F126A603FD008B04C3 /* ForgotThePasswordViewModel.swift in Sources */,
 				BA8864E326A43A38000B6AB4 /* Results.swift in Sources */,
 				BA8284EE26A603FD008B04C3 /* ForgotThePasswordContracts.swift in Sources */,
@@ -862,14 +1074,20 @@
 				BAD9EC3A26985B5F00278905 /* AppRouter.swift in Sources */,
 				BA7521EA26AEAA7C00352D1F /* UserPageViewModel.swift in Sources */,
 				BA89049526A20F5C006433D2 /* SignUpPasswordContracts.swift in Sources */,
+				BA78FDFF26B2914100C541A3 /* NewPostContracts.swift in Sources */,
 				BA8904A026A20FFD006433D2 /* SignupUserNameContracts.swift in Sources */,
+				BA78364D26B9256500D4DA28 /* ContactedUserViewModel.swift in Sources */,
+				BA782C8F26B4036400FF5B2D /* FilterPostContracts.swift in Sources */,
 				BA74091F269DA00E00E3BC20 /* CountryCodesService.swift in Sources */,
 				BA7521E526AEAA7C00352D1F /* UserPageView.swift in Sources */,
 				BA80DA2326986E4300F184F6 /* View.swift in Sources */,
 				BA7408BD269CC33300E3BC20 /* SignUpMethodBuilder.swift in Sources */,
 				BA8904A226A20FFD006433D2 /* SignupUserNameBuilder.swift in Sources */,
+				BA78FE0726B2928200C541A3 /* UserPageRouter.swift in Sources */,
 				BA740917269D9F6900E3BC20 /* TextField.swift in Sources */,
 				BA89048B26A20F4B006433D2 /* SignUpBirthdayPageRouter.swift in Sources */,
+				BA78FDF826B2914100C541A3 /* NewPostBuilder.swift in Sources */,
+				BA78FE0426B2914100C541A3 /* SelectAlbumContracts.swift in Sources */,
 				BA89048F26A20F4B006433D2 /* SignUpBirthdayPageViewModel.swift in Sources */,
 				BAA79D8F269F123C0019BF77 /* Singleton.swift in Sources */,
 				BA89048E26A20F4B006433D2 /* SignUpBirthdayPageView.swift in Sources */,
@@ -877,6 +1095,7 @@
 				BA89048D26A20F4B006433D2 /* SignUpBirthdayContracts.swift in Sources */,
 				BA75220126AEB98C00352D1F /* AddProfilePhotoViewContracts.swift in Sources */,
 				BA75220326AEB98C00352D1F /* AddProfilePhotoRouter.swift in Sources */,
+				BA78FDFE26B2914100C541A3 /* NewPostView.swift in Sources */,
 				BA74091D269D9FF400E3BC20 /* DecoderErrors.swift in Sources */,
 				BA7521E826AEAA7C00352D1F /* UserPageContracts.swift in Sources */,
 				BA89049626A20F5C006433D2 /* SignUpPasswordView.swift in Sources */,
@@ -885,7 +1104,12 @@
 				BAAA0D6C26A8A51B00E46337 /* ContactsViewModel.swift in Sources */,
 				BA833860269EB7C400F73B07 /* CountryCodesContracts.swift in Sources */,
 				BA8284F226A603FD008B04C3 /* ForgotThePasswordView.swift in Sources */,
+				BA78FDFA26B2914100C541A3 /* NewPostCell.swift in Sources */,
+				BA782C9026B4036400FF5B2D /* PhotoFilter.swift in Sources */,
+				BA78365426B9286D00D4DA28 /* ContactedUserCell.swift in Sources */,
+				BA78365626B93E9700D4DA28 /* ContactedUserPresenatation.swift in Sources */,
 				BAD9EC3826985B5200278905 /* AppContainer.swift in Sources */,
+				BA78FE0526B2914100C541A3 /* SmartAlbumChoicer.swift in Sources */,
 				BAAA0D6D26A8A51B00E46337 /* Contacts.swift in Sources */,
 				BAD9EC2926984BA300278905 /* LoginView.swift in Sources */,
 				BA8904A526A21013006433D2 /* PasswordFieldWithEye.swift in Sources */,

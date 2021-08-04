@@ -63,6 +63,7 @@ final class PhotoPicker:NSObject{
         private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
             controller.dismiss(animated: true, completion: nil)
             self.delegate?.didSelect(image: image)
+            
         }
     
     

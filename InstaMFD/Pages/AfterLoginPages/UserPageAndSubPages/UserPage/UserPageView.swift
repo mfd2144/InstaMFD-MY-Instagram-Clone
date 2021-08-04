@@ -7,13 +7,6 @@
 
 import UIKit
 
-enum  UserDataItems:Hashable{
-    case user(BasicUserInfo)
-    case story(Story)
-    case photo(Photo)
-}
-
-
 struct Photo:Hashable{
     let id = UUID()
     let Photo:String
@@ -34,22 +27,6 @@ struct Story:Hashable{
     let photos:String
 }
 
-enum UserPageSection:Int,CaseIterable{
-    case user
-    case story
-    case photo
-    var cellIdentifier:String{
-        switch self {
-        case .photo:
-            return "PhotoCell"
-        case.story:
-            return "StoryCell"
-        case .user:
-            return "UserCell"
-        }
-    }
-}
-
 
 final class UserPageView:UICollectionViewController{
     // MARK: - Value Types
@@ -60,11 +37,7 @@ final class UserPageView:UICollectionViewController{
     
     var viewModel :UserPageViewModelProtocol!
     var user = [BasicUserInfo]()
-    var photos = [Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),
-                  Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),
-                  Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),
-                  Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),
-                  Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1"),Photo(Photo: "1")]
+    var photos = [Photo]()
     var stories = [Story(photos: "123"),Story(photos: "1")]
     private lazy var dataSource = makeDataSource()
     let layoutModel = UserPageCollectionViewLayout()
@@ -74,11 +47,21 @@ final class UserPageView:UICollectionViewController{
         return button
     }()
     
+    lazy var addNewButton:UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNew))
+        return button
+    }()
     
     //MARK: - Life cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationControllerproperties()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .white
         collectionView.collectionViewLayout = layoutModel.compositionalLayout()
         collectionView.register(UserCell.self, forCellWithReuseIdentifier:UserPageSection.user.cellIdentifier)
         collectionView.register(StoryCell.self, forCellWithReuseIdentifier: UserPageSection.story.cellIdentifier)
@@ -92,20 +75,27 @@ final class UserPageView:UICollectionViewController{
     
     //MARK: - NavigationController
     private func setNavigationControllerproperties(){
-        navigationController?.navigationBar.shadowImage = UIImage().withTintColor(.systemBackground)
-        navigationController?.navigationBar.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItems = [logOutButton]
-        let titleLabel = UILabel()
-        titleLabel.text = user.first?.userName
-        navigationController?.navigationBar.addSubview(titleLabel)
+        navigationController?.navigationBar.shadowImage = UIImage().withTintColor(.white)
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = .white
+        navigationItem.rightBarButtonItems = [logOutButton,addNewButton]
+        let userName = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = userName
+        userName.title = user.first?.userName
+        userName.tintColor = .black
+//        navigationController?.navigationBar.addSubview(titleLabel)
         
-        titleLabel.putSubviewAt(top: navigationController?.navigationBar.topAnchor, bottom: navigationController?.navigationBar.bottomAnchor, leading: navigationController?.navigationBar.leadingAnchor, trailing: nil, topDis: 0, bottomDis: 0, leadingDis: 30, trailingDis: 0, heightFloat: 0, widthFloat: UIScreen.main.bounds.width/2, heightDimension: nil, widthDimension: nil)
+//        titleLabel.putSubviewAt(top: navigationController?.navigationBar.topAnchor, bottom: navigationController?.navigationBar.bottomAnchor, leading: navigationController?.navigationBar.leadingAnchor, trailing: nil, topDis: 0, bottomDis: 0, leadingDis: 30, trailingDis: 0, heightFloat: 0, widthFloat: UIScreen.main.bounds.width/2, heightDimension: nil, widthDimension: nil)
     }
     
     @objc private func logOut(){
         viewModel.logOut()
     }
     
+    @objc private func addNew(){
+        viewModel.addNewMedia()
+        
+    }
     
     //MARK: - CollectionView data source
     
@@ -120,17 +110,18 @@ final class UserPageView:UICollectionViewController{
                 return cell
                 
             //middle part
-            case.photo(let photo):
-                guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserPageSection.photo.cellIdentifier, for: indexPath) as? PhotoCell else {fatalError()}
-                cell.setCell(index: indexPath.row, delegate: self)
-                let number = indexPath.row
-                cell.backgroundColor = UIColor.init(red: CGFloat(255-((number*4)+1))/255, green:   CGFloat(255-((number*4)+1))/255, blue:   CGFloat(255-((number*4)+1))/255, alpha: 1)
-                return cell
-                
-            //bottom part
             case.story(let story):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserPageSection.story.cellIdentifier, for: indexPath) as? StoryCell else {fatalError()}
                 cell.cellSetUp(delegate: self, index: indexPath.row)
+                return cell
+           
+                
+            //bottom part
+            case.photo(let photo):
+                guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserPageSection.photo.cellIdentifier, for: indexPath) as? PhotoCell else {fatalError()}
+                cell.setCell(index: indexPath.row, delegate: self, image: UIImage(),contentMode: .scaleAspectFill)
+                let number = indexPath.row
+                cell.backgroundColor = UIColor.init(red: CGFloat(255-((number*4)+1))/255, green:   CGFloat(255-((number*4)+1))/255, blue:   CGFloat(255-((number*4)+1))/255, alpha: 1)
                 return cell
             }
         }

@@ -18,7 +18,7 @@ protocol ContactsViewModelProtocol:AnyObject {
 enum ContactsViewModelOutputs{
     
     case isLoading(Bool)
-    case anyErrorOccured(GeneralErrors)
+    case anyErrorOccured(String)
     
     
 }
@@ -29,7 +29,7 @@ protocol ContactsViewModelDelegate :AnyObject{
 
 enum ContactsRoutes{
     case nextPage
-    case toAddContactsPage
+    case toAddContactsPage([ContactedUserPresentation],ContactedUserParentProtocol)
 }
 protocol ContactsRouterProtocol:AnyObject {
     func routeToPage(_ route: ContactsRoutes)

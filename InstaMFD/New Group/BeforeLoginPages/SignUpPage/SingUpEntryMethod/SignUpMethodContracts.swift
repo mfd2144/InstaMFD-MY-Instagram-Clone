@@ -11,7 +11,7 @@ enum SignUpMethodModelOutput{
     case resultOfCodes(Results<Any>)
     case pushPhoneVerificationAlert(Results<Any>?)
     case signupMethodResult(Results<Any>)
- case isLoading(Bool)
+    
 }
 
 protocol SignUpMethodModelProtocol:AnyObject{

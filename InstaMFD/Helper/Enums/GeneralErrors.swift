@@ -20,7 +20,7 @@ enum GeneralErrors:Error{
         case .emptyFieldError:
             return "Empty textfield"
         case.unsufficientText:
-            return "Textfield must have at least six character"
+            return "Text must be longer"
         case.unvalidText:
             return "Textfield must contain lowercase, uppercase, number, symbol"
         case .userSavingError:

@@ -23,6 +23,7 @@ protocol UserPageViewModelProtocol:AnyObject{
     func myPhotos()
     func taggedPhotos()
     func logOut()
+    func addNewMedia()
     func selectCell(_ type:SelectedCellType)
 }
 
@@ -39,9 +40,9 @@ protocol UserPageViewModelDelegate:AnyObject {
 
 
 enum UserPageRoutes{
-    
+    case toNewPost
 }
 
-protocol UserPageRouter:AnyObject{
+protocol UserPageRouterProtocol:AnyObject{
     func routeToPage(_ route: UserPageRoutes)
 }
