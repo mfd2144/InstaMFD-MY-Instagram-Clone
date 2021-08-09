@@ -12,10 +12,11 @@ final class NewPostRouter:NewPostRouterProtocol{
     
     func routeToPage(_ page: NewPostRoutes) {
         switch page {
-        case .albumSelectPage(let albums,let delegate):
-            let newView = SelectAlbumBuilder.make(albums,delegate:delegate)
+        case .albumSelectPage(let delegate):
+            let newView = SelectAlbumBuilder.make(delegate: delegate)
             view.navigationController?.pushViewController(newView, animated: true)
-        case.filterPage(let container):
+        case.next(let container):
+           
             let newView = FilterPostBuilder.make(container)
             view.navigationController?.pushViewController(newView, animated: true)
         }

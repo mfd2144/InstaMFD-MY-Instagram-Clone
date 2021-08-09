@@ -10,19 +10,54 @@ import Photos
 
 
 
+func runInMain(block: @escaping () -> Void) -> Void {
+    if Thread.current.isMainThread {
+        block()
+    } else {
+        DispatchQueue.main.async {
+            block()
+        }
+    }
+}
+
+
 final class NewPostView:UIViewController{
     
     //MARK: - Value types
-    typealias DataSource = UICollectionViewDiffableDataSource<NewPostSection,ImageContainer>
-    typealias SnapShot = NSDiffableDataSourceSnapshot<NewPostSection,ImageContainer>
+    typealias DataSource = UICollectionViewDiffableDataSource<NewPostSection,PHAsset>
+    typealias SnapShot = NSDiffableDataSourceSnapshot<NewPostSection,PHAsset>
     
-
+    
     //MARK: - Properties
     
-    var imageArray = Array<ImageContainer>()
+    var album:AlbumCollection?{
+        didSet{
+            var assets = [PHAsset]()
+            album?.collection.fetchAssets(block: { fetchResults in
+                fetchResults.enumerateObjects({[unowned self] pHAsset, Int, info in
+                    assets.append(pHAsset)
+                    if  fetchResults.count == assets.count{
+                        allAsset = assets
+                        loadImage(index: 0)
+                        runInMain {
+                            albumNameLabel.text = album?.name
+                        }
+
+                        applySnapshot()
+                    }
+                })
+                
+            })
+        }
+    }
+    
+    
+    fileprivate var allAsset = [PHAsset]()
+    
     var viewModel:NewPostViewModelProtocol!
     lazy var dataSource = makeDataSource()
-    var selectedContainer :ImageContainer?
+    var actualTypeRawValue:Int?
+    
     
     //MARK: - View Porperties
     let scrollView:UIScrollView = {
@@ -50,14 +85,9 @@ final class NewPostView:UIViewController{
         let scroll = UIScrollView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: size))
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
-//        scroll.minimumZoomScale = 1
-//        scroll.maximumZoomScale = 3
-//        scroll.backgroundColor = .black
-//        scroll.bounces = true
-//        scroll.bouncesZoom = true
         return scroll
     }()
-
+    
     
     let imageView: UIImageView = {
         let width = UIScreen.main.bounds.width
@@ -105,11 +135,17 @@ final class NewPostView:UIViewController{
         return button
     }()
     
-  
+    
+    
+    
     //MARK: - Life cycles
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getAlbumPhotos()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getAlbumPhotos()
         setSubviews()
         setCollectionView()
         setGesture()
@@ -118,6 +154,7 @@ final class NewPostView:UIViewController{
         imageScroll.delegate = self
         collectionView.delegate = self
     }
+    
     
     //MARK: - Set subviews
     private func setSubviews(){
@@ -128,20 +165,19 @@ final class NewPostView:UIViewController{
         scrollView.addSubview(middleStack)
         scrollView.addSubview(collectionView)
         view.addSubview(scrollView)
-
-
+        
+        
     }
     
     private func setNavBar(){
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = nextButton
-        navigationItem.hidesBackButton = true
         navigationItem.title = "New Post"
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         
-                
+        
     }
     
     private func setCollectionView(){
@@ -149,7 +185,7 @@ final class NewPostView:UIViewController{
         collectionView.register(NewPostCell.self, forCellWithReuseIdentifier: NewPostCell.identifer)
         applySnapshot(animatingDifferences: true)
     }
-
+    
     //MARK: - Add Gesture
     
     private func setGesture(){
@@ -157,11 +193,8 @@ final class NewPostView:UIViewController{
         albumNameLabel.addGestureRecognizer(gesture)
         albumNameLabel.isUserInteractionEnabled = true
     }
+  
     
-    @objc private func albumLabelPressed(){
-        viewModel.selectAlbum()
-    }
- 
     
     //MARK: - Methods
     private func createLayout()->UICollectionViewCompositionalLayout{
@@ -171,38 +204,72 @@ final class NewPostView:UIViewController{
             item.contentInsets = .init(top: 1, leading: 1, bottom: 1, trailing: 1)
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.25))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem:item,count: 4)
-          let section = NSCollectionLayoutSection(group: group)
+            let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
             return section
             
         })
         return layout
     }
-   
+    
+    
+    @objc private func albumLabelPressed(){
+        viewModel.selectAlbum()
+    }
     
     @objc private func cancelPressed(){
         navigationController?.popViewController(animated: true)
     }
     
     @objc private func nextPressed(){
-        guard let container = selectedContainer else {return}
-        viewModel.showPhoto(container)
+        let image = imageView.image
+        let container = ImageContainer(images:image , info: nil)
+        viewModel.nextPage(container)
     }
     
+   private func setImageFor(cell: NewPostCell, for indexPath: IndexPath) -> Void {
+        let asset = allAsset[indexPath.row]
+        let _ = asset.requestImage(size: CGSize.init(width: 90.0, height: 90.0)) { (dic) in
+            let image: UIImage? = dic[AlbumConstant.ImageKey] as? UIImage
+            runInMain {
+                if cell.localIdentifier == asset.localIdentifier {
+                    cell.imageView.image = image
+                    if image == nil && asset.mediaType == .video {
+                        cell.imageView.image = UIImage(named:"Video")
+                    }
+                } else {
+                    Debug.AlbumDebug("\(indexPath.section),\(indexPath.row)")
+                }
+            }
+        }
+    }
+    
+    private func loadImage(index:Int){
+         let asset = allAsset[index]
+        let _ = asset.requestImage(size: CGSize.init(width: asset.pixelWidth, height: asset.pixelHeight)) { (dic) in
+            let image: UIImage? = dic[AlbumConstant.ImageKey] as? UIImage
+            runInMain {[unowned self] in
+                imageView.image = image
+            }
+        }
+
+    }
     
 }
+
+
+
 extension NewPostView:UICollectionViewDelegate{
     
     private func makeDataSource()->DataSource{
-
-        let dataSource = DataSource(collectionView: collectionView) { [unowned self] collectionView, indexPath, imageContainer in
-            
-            if indexPath.row == imageArray.count - 100{
-                viewModel.getAlbumPhotos()
-            }
         
+        let dataSource = DataSource(collectionView: collectionView) {[unowned self]collectionView, indexPath, asset in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewPostCell.identifer, for: indexPath) as? NewPostCell
-            cell?.imageView.image = imageContainer.images
+            
+            cell?.localIdentifier = asset.localIdentifier
+            if let cell = cell{
+                setImageFor(cell: cell, for: indexPath)
+            }
             return cell
         }
         return dataSource
@@ -211,46 +278,44 @@ extension NewPostView:UICollectionViewDelegate{
     func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = SnapShot()
         snapshot.appendSections(NewPostSection.allCases)
-        snapshot.appendItems(imageArray, toSection: NewPostSection.main)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences, completion: nil)
+        
+        snapshot.appendItems(allAsset,toSection: NewPostSection.main)
+        runInMain {[unowned self] in
+            dataSource.apply(snapshot, animatingDifferences: animatingDifferences, completion: nil)
+        }
+      
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedContainer = imageArray[indexPath.row]
-        imageView.image = selectedContainer?.images
-        print(selectedContainer?.images?.configuration)
-//        let size = CGSize(width: (image?.size.width)!, height: (image?.size.width)!)
-//        imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
-//        scrollView.contentSize = image!.size
-//        scrollView.autoresizingMask = .flexibleWidth
-        
+        loadImage(index: indexPath.row)
     }
     
-    }
- 
+}
+
 
 extension NewPostView:NewPostViewModelDelegate{
     func handleOutput(_ output: NewPostViewModelOutputs) {
-        
-        
         switch output {
         case .anyCaution(let caution):
-            addCaution(title: "caution", message: caution)
-        //todo
-        break
-        case.isLoading(let loading):
-           
-            loading ? Animator.sharedInstance.showAnimation():Animator.sharedInstance.hideAnimation()
+            var cautionView:AddAnySimpleCaution?
+            DispatchQueue.main.async {
+                cautionView = AddAnySimpleCaution.init(title: "Caution", message: caution)
+                self.present(cautionView!, animated: true, completion: nil)
+            }
             
-        case .photos(let array):
-            imageArray = array
-                selectedContainer = imageArray[0]
-            DispatchQueue.main.async { [unowned self] in
-                imageView.image = selectedContainer?.images
-                applySnapshot()
-        }
+        case.isLoading(let loading):
+            
+            if loading {Animator.sharedInstance.showAnimation()
+                
+            } else{
+                Animator.sharedInstance.hideAnimation()
+            }
+            
         case .setAlbumNAme(let name):
             albumNameLabel.text = name
+        case .loadAlbum(let _album):
+            album = _album
+            
         }
     }
 }
@@ -261,23 +326,4 @@ extension NewPostView:UIScrollViewDelegate{
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         imageView
     }
-}
-
-extension NewPostView{
-
-func crop() {//todo
-    let scale:CGFloat = imageScroll.frame.height/imageScroll.contentSize.height
-    let image = imageView.image
-    let x:CGFloat = imageScroll.contentOffset.x*scale
-    let y:CGFloat = imageScroll.contentOffset.y*scale
-    let width:CGFloat = (image?.size.width)! * scale
-    let height:CGFloat = (image?.size.height)! * scale
-    
-
-   
-    let croppedCGImage = imageView.image?.cgImage?.cropping(to: CGRect(x: x, y: y, width: width, height: height))
-    let croppedImage = UIImage(cgImage: croppedCGImage!)
-    imageView.image = croppedImage
-}
-
 }

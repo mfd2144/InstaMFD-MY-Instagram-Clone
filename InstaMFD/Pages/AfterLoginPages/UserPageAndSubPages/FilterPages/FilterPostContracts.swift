@@ -27,3 +27,7 @@ enum FilterPostViewModeloutputs{
 protocol FilterPostViewModelDelegate:AnyObject{
     func handleOutputs(_ output:FilterPostViewModeloutputs)
 }
+
+protocol FilterPostRouterProtocol{
+    func toNextPage(_ container:ImageContainer)
+}

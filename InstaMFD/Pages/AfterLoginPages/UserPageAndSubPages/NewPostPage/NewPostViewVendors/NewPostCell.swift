@@ -9,6 +9,7 @@ import UIKit
 
 final class NewPostCell:UICollectionViewCell{
     static let identifer = "NewPostCell"
+    var localIdentifier:String?
     let imageView :UIImageView = {
         let imageV = UIImageView()
         imageV.contentMode = .scaleAspectFill

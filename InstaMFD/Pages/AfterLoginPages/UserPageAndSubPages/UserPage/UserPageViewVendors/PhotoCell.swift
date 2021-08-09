@@ -11,6 +11,7 @@ class PhotoCell: UICollectionViewCell {
     weak var delegate:PhotoCellProtocol?
     var index:Int?
     static let identifier = "PhotoCell"
+    
     private let imageView :UIImageView = {
         let view = UIImageView(frame: .zero)
         return view
@@ -22,6 +23,7 @@ class PhotoCell: UICollectionViewCell {
         addSubview(imageView)
         imageView.putSubviewAt(top: topAnchor, bottom: bottomAnchor, leading: leadingAnchor, trailing: trailingAnchor, topDis: 0, bottomDis: 0, leadingDis: 0, trailingDis: 0, heightFloat: nil, widthFloat: nil, heightDimension: nil, widthDimension: nil)
     }
+    
     func setCell(image:UIImage,contentMode:UIImageView.ContentMode){
         imageView.image = image
         imageView.contentMode = contentMode

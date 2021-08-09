@@ -166,17 +166,27 @@ class UserCell: UICollectionViewCell {
         labelFollowing.text = String(user.following)
         labelPost.text = String(user.posts)
         var avatarImage = UIImage(systemName: "person")
+
         if let urlString = user.userImage,let url = URL(string: urlString)  {
             appContainer.photoDownloader.downloadImage(url) { result in
                 switch result{
                 case.success( let image):
                     guard let image = image else {return}
+                    let data = image.pngData()
+                    UserDefaults.standard.setValue(data, forKey: "userImageData")
                     avatarImage = image
                 default:
                     break
                 }
                 DispatchQueue.main.async {
-                    self.imageView.image = avatarImage
+                    if let imageData = UserDefaults.standard.data(forKey: "userImageData"){
+                        let image = UIImage(data: imageData)
+                        self.imageView.image = image
+                    }else{
+                        self.imageView.image = avatarImage
+                    }
+                    
+                  
                 }
                 
             }

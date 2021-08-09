@@ -12,6 +12,7 @@ final class FilterPostViewModel:FilterPostViewModelProtocol{
    weak var delegate: FilterPostViewModelDelegate?
     var filterModel:PhotoFilters
     var results = [FilteredImageContainer]()
+    var router:FilterPostRouter!
     
     init(container:ImageContainer) {
         filterModel = PhotoFilters(container: container)
@@ -23,8 +24,9 @@ final class FilterPostViewModel:FilterPostViewModelProtocol{
     }
     
     func saveImageToFirebase(_ imageContainer: ImageContainer) {
-        
+        router.toNextPage(imageContainer)
     }
+    
 }
 
 extension FilterPostViewModel:PhotoFilterProtocol{

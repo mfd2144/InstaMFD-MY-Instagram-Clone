@@ -7,24 +7,26 @@
 
 import Foundation
 
-
 final class SelectAlbumViewModel:SelectAlbumViewModelProtocol{
+    
     weak var parentDelegate:NewPostParentProtocol!
     weak var delegate: SelectAlbumViewModelDelegate?
-    var albums:[AlbumPresentation]!{
-        didSet{
-          albums = albums.sorted(by: {$0.smartAlbum > $1.smartAlbum})
-        }
+    var albumProvider: AlbumProvider!
+
+    
+    func selectAnAlbum(_ collection: AlbumCollection) {
+        parentDelegate.getAlbumName(album: collection)
     }
-    
-    
-    func selectAnAlbum(_ index:Int) {
-        parentDelegate.getAlbumName(album:albums[index])
-    }
-    
+
+
     func loadAlbums() {
-        delegate?.handleOutputs(.albumData(albums))
+        albumProvider.delegate = self
     }
-    
-    
+}
+
+
+extension SelectAlbumViewModel:AlbumProviderProtocol{
+    func reloadData(_ list: [AlbumCollection]) {
+        delegate?.handleOutputs(.albumData(list))
+    }
 }

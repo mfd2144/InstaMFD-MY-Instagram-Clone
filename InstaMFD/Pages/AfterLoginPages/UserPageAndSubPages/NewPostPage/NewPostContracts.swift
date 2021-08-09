@@ -10,19 +10,16 @@ import Foundation
 
 protocol NewPostViewModelProtocol:AnyObject{
     var delegate: NewPostViewModelDelegate? {get set}
-//    private func getSmartPhotos(albumRawValue: Int?)
-//    private func getAlbumPhotos(albumTitle: String)
+    func nextPage(_ container: ImageContainer)
     func getAlbumPhotos()
-    func showPhoto(_ container:ImageContainer)
- 
     func selectAlbum()
 }
 
 enum NewPostViewModelOutputs{
     case anyCaution(String)
     case isLoading(Bool)
-    case photos([ImageContainer])
     case setAlbumNAme(String)
+    case loadAlbum(AlbumCollection)
 }
 
 protocol NewPostViewModelDelegate:AnyObject{
@@ -30,17 +27,14 @@ protocol NewPostViewModelDelegate:AnyObject{
 }
 
 enum NewPostRoutes{
-    case albumSelectPage([AlbumPresentation],delegate:NewPostParentProtocol)
-    case filterPage(ImageContainer)
+    case albumSelectPage(delegate:NewPostParentProtocol)
+    case next(ImageContainer)
 }
 
 protocol NewPostRouterProtocol{
     func routeToPage(_ page: NewPostRoutes)
-    
 }
 
-
-//talk with previous view controller(userPage)
 protocol NewPostParentProtocol:AnyObject{
-    func getAlbumName(album:AlbumPresentation)
+    func getAlbumName(album:AlbumCollection)
 }

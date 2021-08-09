@@ -32,7 +32,7 @@ final class FilterPostView:UICollectionViewController{
     lazy var dataSource = makeDataSource()
     
     lazy var nextButton :UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addImage))
+        let button = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(addImage))
         return button
     }()
     
@@ -74,7 +74,6 @@ extension FilterPostView{
             case.allFilteredImages(let filterContainer):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as? PhotoCell
                 guard let image = filterContainer.container.images else {return UICollectionViewCell()}
-            
                 cell?.setCell(index: indexPath.row, delegate: self, image: image,contentMode: .scaleAspectFit)
                 return cell
             }
@@ -94,6 +93,7 @@ extension FilterPostView{
         }
         
         let allImages = allImages.map{ FilterPostDataItems.allFilteredImages($0) }
+      
         snapshot.appendItems(allImages, toSection: FilterPostViewSections.filteredViews)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
         
@@ -147,11 +147,11 @@ extension FilterPostView:FilterPostViewModelDelegate{
         case.anyErrorOccured(let caution):
             addCaution(title: "caution", message: caution)
         case .afterFilterExecuted(let containers):
+
             if let original = containers.filter ({$0.name == "original"}).first{
                 mainImage = original
             }
             allImages = containers.sorted(by: {$0.name>$1.name})
-        
            applySnapShot()
         default:
             break

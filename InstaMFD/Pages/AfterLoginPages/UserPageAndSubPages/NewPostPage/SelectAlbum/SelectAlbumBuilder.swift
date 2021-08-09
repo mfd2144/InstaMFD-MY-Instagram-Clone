@@ -8,16 +8,13 @@
 import UIKit
 
 final class SelectAlbumBuilder{
-    static func make(_ albums:[AlbumPresentation],delegate:NewPostParentProtocol)->UIViewController{
+    static func make(delegate:NewPostParentProtocol?)->UIViewController{
         let view = SelectAlbumView()
         let viewModel = SelectAlbumViewModel()
         view.viewModel = viewModel
         viewModel.parentDelegate = delegate
         viewModel.delegate = view
-        viewModel.albums = albums
+        viewModel.albumProvider = AlbumProvider()
         return view
-        
     }
-    
-    
 }

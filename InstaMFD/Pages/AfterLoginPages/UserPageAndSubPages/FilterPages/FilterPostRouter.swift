@@ -6,3 +6,11 @@
 //
 
 import Foundation
+final class FilterPostRouter:FilterPostRouterProtocol{
+    unowned var view: FilterPostView!
+    
+    func toNextPage(_ container: ImageContainer) {
+        let nextPage = AddImageDBBuilder.make(container)
+        view.navigationController?.pushViewController(nextPage, animated: true)
+    }
+}

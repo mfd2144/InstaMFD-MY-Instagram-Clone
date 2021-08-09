@@ -11,18 +11,14 @@ import Foundation
 
 protocol SelectAlbumViewModelProtocol:AnyObject{
     var delegate:SelectAlbumViewModelDelegate? {get set}
-    func selectAnAlbum(_ index:Int)
+    func selectAnAlbum(_ collection: AlbumCollection)
     func loadAlbums()
 }
 
 enum SelectAlbumOutputs{
-    case albumData([AlbumPresentation])
+    case albumData([AlbumCollection])
 }
 
 protocol  SelectAlbumViewModelDelegate:AnyObject {
     func handleOutputs(_ outputs: SelectAlbumOutputs)
-}
-
-protocol SelectAlbumRouterProtocol {
-    
 }

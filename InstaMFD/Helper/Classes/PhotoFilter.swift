@@ -15,19 +15,6 @@ protocol PhotoFilterProtocol:AnyObject{
 }
 
 
-struct FilteredImageContainer:Hashable{
-    let name:String
-    let container:ImageContainer
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-    
-    static func == (lhs:FilteredImageContainer,rhs:FilteredImageContainer)->Bool{
-        return lhs.name == rhs.name
-    }
-}
-
 
 
 final class PhotoFilters {
@@ -98,27 +85,11 @@ final class PhotoFilters {
                         }
                     }
                 }
-                
-                
             }
-            
-            
+  
         }
         
-        
-        
     }
-    
-    
-    //        if let  posterizeFilter = posterizeFilter(ciImage, inputLevel: 2){
-    //            let filtered = FilteredImageContainer(name: "poster", container: ImageContainer(images: UIImage(ciImage: posterizeFilter), info: info))
-    //            container.append(filtered)
-    //        }
-    
-    
-    
-    
-    
     
     
     private func sepiaFilter(_ input: CIImage, intensity: Double) -> CIImage?
